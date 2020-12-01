@@ -48,7 +48,7 @@ public class ConnexionBDD extends HttpServlet{
         //On redirige le contrôle à une jps ( CinemaView.jsp )
 		
         //Variable correspondant à l'url de connection a à la base de donnée de MariaDB avec "cinema" qui le nom de la BD 
-		String url = new String("jdbc:mariadb://localhost:3306/cinema"); 
+		String url = new String("jdbc:mariadb://localhost:3306/covid"); //A changer en "jdbc:mysql://localhost/..." si nécessaire;
 		RequestDispatcher disp = this.getServletContext().getRequestDispatcher("/connectView.jsp");
 		//Test qui détermine si les champs sont vides
 		if (user!=null && mdp!=null ) {
@@ -94,7 +94,7 @@ public class ConnexionBDD extends HttpServlet{
 
 		//Connection au driver de la base de donnée
 		try {
-			Class.forName("org.mariadb.jdbc.Driver");
+			Class.forName("org.mariadb.jdbc.Driver");			//A changer en ""com.mysql.cj.jdbc.Driver"" si nécessaire;
 		// Chargement du Driver JDBC Connector/J (pour MySql)
 		}
 		catch(ClassNotFoundException e){

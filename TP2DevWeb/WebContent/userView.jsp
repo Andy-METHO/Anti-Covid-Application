@@ -3,7 +3,7 @@
     
 <%@ page import="mybean.*" %>
 
-<jsp:useBean id="idcine" class="mybean.LogServlet" scope="session" />
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <!DOCTYPE html>
 <html>
@@ -12,20 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
-	
-	</div>
-	<form method="get" action="http://localhost:8080/TP2DevWeb/LoginServlet">
-		<label for="intitule">Nom</label><br />
-		<input type="text" name="nom" id="nom" />
-		<br/>
-		
-	    <label for="type">Value</label><br />
-		<input type="text" name="value" id="value" />
-		<br/>
-		
-		<input type="submit" value="Valider" /> <input type="reset" value="Reset" />
-	</form>
+	Bienvenue ${param.nom}
 
 
 </body>
