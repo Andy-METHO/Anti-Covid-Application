@@ -9,10 +9,9 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styles.min.css">
   <!-- favicon -->
   <link rel="icon" href="${pageContext.request.contextPath}/resources/img/favicon.ico">
-  <title>Vikinger | Home</title>
+  <title>AntiCovid| Home</title>
 </head>
 <body>
-
   <!-- LANDING -->
   <div class="landing">
     <!-- LANDING DECORATION -->

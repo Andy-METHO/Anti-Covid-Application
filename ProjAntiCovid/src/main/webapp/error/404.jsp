@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- bootstrap 4.3.1 -->
-  <link rel="css/sheet" href="${pageContext.request.contextPath}/resources/css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/vendor/bootstrap.min.css">
   <!-- styles -->
-  <link rel="css/sheet" href="${pageContext.request.contextPath}/resources/css/styles.min.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styles.min.css">
   <!-- favicon -->
   <link rel="icon" href="${pageContext.request.contextPath}/resources/img/favicon.ico">
   <title>AntiCovid | 404</title>

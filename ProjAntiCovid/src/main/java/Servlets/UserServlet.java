@@ -27,7 +27,7 @@ public class UserServlet extends HttpServlet {
         }
         else{
             if(current_user.getRole().trim().equals("USER")) {
-                request.getRequestDispatcher( "/logged.jsp" ).forward( request, response );
+                request.getRequestDispatcher( "/events.jsp" ).forward( request, response );
             }
             else {
                 if(current_user.getRole().trim().equals("ADMIN")) {
