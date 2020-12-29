@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import BDD.ConnexionBDD;
+
 import java.io.IOException;
 
 public class UserServlet extends HttpServlet {
@@ -27,6 +30,15 @@ public class UserServlet extends HttpServlet {
         }
         else{
             if(current_user.getRole().trim().equals("USER")) {
+            	String positif =  request.getParameter("positivite");
+            	System.out.println(positif);
+            	if(positif!=null) {
+	            	if(positif.equals("positif")) {
+		            	String sql_positif = "UPDATE `covid`.`user` SET `statut`=b'1' WHERE  `id`="+current_user.getId()+";";
+		            	ConnexionBDD sc = new ConnexionBDD();
+		            	sc.doRequest(sql_positif);
+	            	}
+            	}
                 request.getRequestDispatcher( "/events.jsp" ).forward( request, response );
             }
             else {

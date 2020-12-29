@@ -61,4 +61,14 @@
         <servlet-name>FriendsServlet</servlet-name>
         <url-pattern>/friends</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>PositifServlet</servlet-name>
+        <servlet-class>Servlets.PositifServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PositifServlet</servlet-name>
+        <url-pattern>/positif</url-pattern>
+    </servlet-mapping>
 </web-app>

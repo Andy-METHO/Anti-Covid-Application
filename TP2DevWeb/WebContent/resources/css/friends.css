@@ -2,6 +2,10 @@
 
 table
 {
-	border-spacing: 30px;
+	border-spacing: 20px;
     border-collapse: separate;
+}
+
+.btn_positif div{
+	padding: 20px;	
 }

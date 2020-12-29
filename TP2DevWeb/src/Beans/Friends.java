@@ -11,6 +11,11 @@ public class Friends {
     public Friends() {
     	super();
     }
+    
+    public Friends(ArrayList<User> friends) {
+    	this.friends=friends;
+    }
+    
     public Friends(ArrayList<User> friends,ArrayList<User> request_received,ArrayList<User> request_send) {
     	this.friends=friends;
     	this.request_received=request_received;
