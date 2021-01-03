@@ -6,7 +6,8 @@ import java.util.Date;
 
 public class User{
 
-    private Long id;
+    private int id;
+    String pseudo;
     private String login;
     private String password;
     private String nom;
@@ -14,13 +15,22 @@ public class User{
     private String image;
     private String role;
     private Date birthdate;
+    private boolean statut;
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public String getPseudo() {
+        return pseudo;
+    }
+
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
     }
 
     public String getLogin() {
@@ -71,11 +81,24 @@ public class User{
         this.role = role;
     }
 
-    public Date getBirthdate() {
-        return birthdate;
+    public String getBirthdate() throws ParseException {
+        return new SimpleDateFormat("dd/MM/yyyy").format(birthdate);
     }
 
     public void setBirthdate(String birthdate) throws ParseException {
-        this.birthdate = new SimpleDateFormat("YYYY-MM-dd").parse(birthdate);
+        this.birthdate = new SimpleDateFormat("yyyy-MM-dd").parse(birthdate);
+    }
+
+    public boolean getStatut() {
+        return statut;
+    }
+
+    public void setStatut(int statut){
+        if(statut==0) {
+            this.statut = false;
+        }
+        else if(statut==1) {
+            this.statut = true;
+        }
     }
 }

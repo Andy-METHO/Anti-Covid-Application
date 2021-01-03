@@ -20,10 +20,13 @@ public class UserServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         User current_user = (User) session.getAttribute("current_user");
+        session.getAttribute("msg_err_login");
+        session.getAttribute("msg_err_register");
 
         if(current_user == null) {
 
             request.getRequestDispatcher( "/index.jsp" ).forward( request, response );
+            session.setAttribute("msg-err", "Veuillez vous connecter");
         }
         else{
             if(current_user.getRole().trim().equals("USER")) {
