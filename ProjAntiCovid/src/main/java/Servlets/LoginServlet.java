@@ -26,10 +26,22 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("current_user",current_user);
             request.setAttribute("current_user",current_user);
 
+            if (current_user != null){
+                System.out.println("Login réussi");
+            }
+            else{
+                System.out.println("Login échoué");
+                session.setAttribute("msg_err_login", "Login ou mot de passe incorrect");
+            }
+
         }
         else {
             session.setAttribute("current_user",null);
             request.setAttribute("current_user",null);
+
+            session.setAttribute("msg_err_login", "Login ou mot de passe incorrect");
+
+            System.out.println("login échoué");
         }
 
         response.sendRedirect("user_servlet");

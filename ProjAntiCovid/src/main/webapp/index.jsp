@@ -67,6 +67,13 @@
         <!-- FORM BOX TITLE -->
         <h2 class="form-box-title">Account Login</h2>
         <!-- /FORM BOX TITLE -->
+
+        <!-- FORM BOX TITLE -->
+        <c:if test="${not empty msg_err_login}">
+          <p class="landing-info-text" style="color:darkred">${msg_err_login}</p>
+        </c:if>
+
+        <!-- /FORM BOX TITLE -->
     
         <!-- FORM -->
         <form class="form" method="post" action="login">
@@ -76,7 +83,7 @@
             <div class="form-item">
               <!-- FORM INPUT -->
               <div class="form-input">
-                <label for="login-username">Username</label>
+                <label for="login-username">Login</label>
                 <input type="text" id="login-username" name="login">
               </div>
               <!-- /FORM INPUT -->
@@ -125,7 +132,12 @@
         <!-- FORM BOX TITLE -->
         <h2 class="form-box-title">Create your Account!</h2>
         <!-- /FORM BOX TITLE -->
-    
+
+
+        <c:if test="${not empty msg_err_register}">
+          <p class="landing-info-text" style="color:darkred">${msg_err_register}</p>
+        </c:if>
+
         <!-- FORM -->
         <form class="form" method="post" action="register">
           <!-- FORM ROW -->
@@ -134,7 +146,7 @@
             <div class="form-item">
               <!-- FORM INPUT -->
               <div class="form-input">
-                <label for="register-username">Username</label>
+                <label for="register-username">Login</label>
                 <input type="text" id="register-username" name="login">
               </div>
               <!-- /FORM INPUT -->
@@ -151,6 +163,21 @@
               <div class="form-input">
                 <label for="register-password">Password</label>
                 <input type="password" id="register-password" name="password">
+              </div>
+              <!-- /FORM INPUT -->
+            </div>
+            <!-- /FORM ITEM -->
+          </div>
+          <!-- /FORM ROW -->
+
+          <!-- FORM ROW -->
+          <div class="form-row">
+            <!-- FORM ITEM -->
+            <div class="form-item">
+              <!-- FORM INPUT -->
+              <div class="form-input">
+                <label for="login-pseudo">Pseudo</label>
+                <input type="text" id="login-pseudo" name="pseudo">
               </div>
               <!-- /FORM INPUT -->
             </div>
@@ -194,7 +221,7 @@
             <div class="form-item">
               <!-- FORM INPUT -->
               <div class="form-input">
-                <label for="register-birthdate">Date de naissance</label>
+                <label for="register-birthdate">Date de naissance dd/MM/YYYY</label>
                 <input type="text" id="register-birthdate" name="birthdate">
               </div>
               <!-- /FORM INPUT -->

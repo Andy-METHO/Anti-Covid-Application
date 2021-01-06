@@ -1,6 +1,7 @@
 package Servlets;
 
 import BDD.ConnexionBDD;
+import Beans.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +11,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class RegisterServlet extends HttpServlet {
 
@@ -20,9 +24,17 @@ public class RegisterServlet extends HttpServlet {
 
         String login = request.getParameter("login");
         String password = request.getParameter("password");
+        String pseudo = request.getParameter("pseudo");
         String nom = request.getParameter("nom");
         String prenom = request.getParameter("prenom");
         String birthdate = request.getParameter("birthdate");
+        Date bday = null;
+        try {
+            bday = new SimpleDateFormat("dd/MM/yyyy").parse(birthdate);
+            birthdate = new SimpleDateFormat("yyyy-MM-dd").format(bday);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         HttpSession session = request.getSession();
         ConnexionBDD sc = new ConnexionBDD();
@@ -31,10 +43,21 @@ public class RegisterServlet extends HttpServlet {
 
             try {
                 if(!sc.userNameExists(login)){
-                    sc.createUser(login, password, nom, prenom, birthdate);
+                    boolean succes = sc.createUser(login, password, pseudo, nom, prenom, birthdate);
+                    System.out.println("Création de l'user");
+                    if(succes){
+                        System.out.println("Création réussie");
+                    }
+                    else{
+                        session.setAttribute("msg_err_register","Les données rentrées sont incorrectes !");
+                        System.out.println("Création échouée");
+                    }
                 }
-                session.setAttribute("msg-err","Login existant");
-                out.println("<p>Le login existe déjà</p>");
+                else {
+                    session.setAttribute("msg_err_register","Login existant");
+
+                    System.out.println("Login existant");
+                }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -42,7 +65,7 @@ public class RegisterServlet extends HttpServlet {
         }
         else {
 
-            session.setAttribute("msg-err"," login ou mot de passe mal formé !");
+            session.setAttribute("msg_err_register","Les données rentrées sont incorrectes !");
 
             session.setAttribute("current_user",null);
             request.setAttribute("current_user",null);
@@ -53,6 +76,6 @@ public class RegisterServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect(request.getContextPath()+"/user_servlet");
+        request.getRequestDispatcher( "/user_servlet" ).forward( request, response );
     }
 }
