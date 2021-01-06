@@ -39,7 +39,7 @@ public class PositifServlet extends HttpServlet {
 	        String pseudo =  request.getParameter("pseudo");
 	        ConnexionBDD sc = new ConnexionBDD();
 	        ResultSet results;
-	        String friends_sql = "SELECT id,pseudo FROM ami,user WHERE ( user1="+user_id+" OR user2="+user_id+" ) AND valide=1 AND ( user1=id OR user2=id );";
+	        String friends_sql = "SELECT id,pseudo FROM ami,User WHERE ( user1="+user_id+" OR user2="+user_id+" ) AND valide=1 AND ( user1=id OR user2=id );";
 	        ArrayList<User> friends = new ArrayList<User>();
 	        try {
 	        	results = sc.doRequest(friends_sql);

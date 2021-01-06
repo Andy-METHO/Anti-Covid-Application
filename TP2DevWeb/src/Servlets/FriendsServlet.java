@@ -39,9 +39,9 @@ public class FriendsServlet extends HttpServlet {
 	        String pseudo =  request.getParameter("pseudo");
 	        ConnexionBDD sc = new ConnexionBDD();
 	        ResultSet results;
-	        String friends_sql = "SELECT id,pseudo FROM ami,user WHERE ( user1="+user_id+" OR user2="+user_id+" ) AND valide=1 AND ( user1=id OR user2=id );";
-	        String request_received_sql = "SELECT id,pseudo FROM ami,user WHERE user2="+user_id+" AND valide=0 AND user1=id;";
-	        String request_send_sql = "SELECT id,pseudo FROM ami,user WHERE user1="+user_id+" AND valide=0 AND user2=id;";
+	        String friends_sql = "SELECT id,pseudo FROM ami, User WHERE ( user1="+user_id+" OR user2="+user_id+" ) AND valide=1 AND ( user1=id OR user2=id );";
+	        String request_received_sql = "SELECT id,pseudo FROM ami,User WHERE user2="+user_id+" AND valide=0 AND user1=id;";
+	        String request_send_sql = "SELECT id,pseudo FROM ami, User WHERE user1="+user_id+" AND valide=0 AND user2=id;";
 	        ArrayList<User> friends = new ArrayList<User>();
 	        ArrayList<User> request_received = new ArrayList<User>();
 	        ArrayList<User> request_send = new ArrayList<User>();
@@ -67,38 +67,38 @@ public class FriendsServlet extends HttpServlet {
 	    	
 	    	friendslist = new Friends(friends,request_received,request_send);
 	    	
-	    	String delatefriend =  request.getParameter("delatefriend");
-	    	if(delatefriend!=null){
-	    		User userdelatefriend = friendslist.searchFriendbyPseudo(delatefriend);
-	    		String sql_string_delatefriend =  "DELETE FROM `covid`.`ami` WHERE  ((`user1`="+current_user.getId()+" AND `user2`="+userdelatefriend.getId()+") OR (`user1`="+userdelatefriend.getId()+" AND `user2`="+current_user.getId()+")) AND `valide`=b'1' LIMIT 1;";
-	    		sc.doRequest(sql_string_delatefriend);
-	    		friendslist.removeFriends(userdelatefriend);
+	    	String deletefriend =  request.getParameter("deletefriend");
+	    	if(deletefriend!=null){
+	    		User userdeletefriend = friendslist.searchFriendbyPseudo(deletefriend);
+	    		String sql_string_deletefriend =  "DELETE FROM `covid`.`ami` WHERE  ((`user1`="+current_user.getId()+" AND `user2`="+userdeletefriend.getId()+") OR (`user1`="+userdeletefriend.getId()+" AND `user2`="+current_user.getId()+")) AND `valide`=b'1' LIMIT 1;";
+	    		sc.doUpdate(sql_string_deletefriend);
+	    		friendslist.removeFriends(userdeletefriend);
 	    	}
 
 	    	
-	    	String delateRequest_received =  request.getParameter("delateRequest_received");
-	    	if(delateRequest_received!=null){
-	    		User userdelateRequest_received = friendslist.searchRequest_receivedbyPseudo(delateRequest_received);
-	    		String sql_string_delateRequest_received =  "DELETE FROM `covid`.`ami` WHERE (`user1`="+userdelateRequest_received.getId()+" AND `user2`="+current_user.getId()+") AND `valide`=b'0' LIMIT 1;";
-	    		sc.doRequest(sql_string_delateRequest_received);
-	    		friendslist.removeRequest_received(userdelateRequest_received);
+	    	String deleteRequest_received =  request.getParameter("deleteRequest_received");
+	    	if(deleteRequest_received!=null){
+	    		User userdeleteRequest_received = friendslist.searchRequest_receivedbyPseudo(deleteRequest_received);
+	    		String sql_string_deleteRequest_received =  "DELETE FROM `covid`.`ami` WHERE (`user1`="+userdeleteRequest_received.getId()+" AND `user2`="+current_user.getId()+") AND `valide`=b'0' LIMIT 1;";
+	    		sc.doUpdate(sql_string_deleteRequest_received);
+	    		friendslist.removeRequest_received(userdeleteRequest_received);
 	    	}
 	    	
 	    	String addRequest_received =  request.getParameter("addRequest_received");
 	    	if(addRequest_received!=null){
 	    		User useraddRequest_received = friendslist.searchRequest_receivedbyPseudo(addRequest_received);
 	    		String sql_string_addRequest_received = "UPDATE `covid`.`ami` SET `valide`=b'1' WHERE  `user1`="+useraddRequest_received.getId()+" AND `user2`="+current_user.getId()+" AND `valide`=b'0' LIMIT 1;";
-	    		sc.doRequest(sql_string_addRequest_received);
+	    		sc.doUpdate(sql_string_addRequest_received);
 	    		friendslist.addFriends(useraddRequest_received);
 	    		friendslist.removeRequest_received(useraddRequest_received);
 	    	}
 	    	
-	    	String delateRequest_send =  request.getParameter("delateRequest_send");
-	    	if(delateRequest_send!=null){
-	    		User userdelateRequest_send = friendslist.searchRequest_sendbyPseudo(delateRequest_send);
-	    		String sql_string_delateRequest_send =  "DELETE FROM `covid`.`ami` WHERE  (`user1`="+current_user.getId()+" AND `user2`="+userdelateRequest_send.getId()+") AND `valide`=b'0' LIMIT 1;";
-	    		sc.doRequest(sql_string_delateRequest_send);
-	    		friendslist.removeRequest_send(userdelateRequest_send);
+	    	String deleteRequest_send =  request.getParameter("deleteRequest_send");
+	    	if(deleteRequest_send!=null){
+	    		User userdeleteRequest_send = friendslist.searchRequest_sendbyPseudo(deleteRequest_send);
+	    		String sql_string_deleteRequest_send =  "DELETE FROM `covid`.`ami` WHERE  (`user1`="+current_user.getId()+" AND `user2`="+userdeleteRequest_send.getId()+") AND `valide`=b'0' LIMIT 1;";
+	    		sc.doUpdate(sql_string_deleteRequest_send);
+	    		friendslist.removeRequest_send(userdeleteRequest_send);
 	    	}
 
 	        if(pseudo!=null) {
@@ -106,7 +106,7 @@ public class FriendsServlet extends HttpServlet {
 	        		User addUser = sc.getUser(pseudo);
 	        		friendslist.addRequest_send(addUser);
 	        		String sql_string =  "INSERT INTO `covid`.`ami` (`user1`, `user2`, `valide`) VALUES ('"+user_id+"', '"+addUser.getId()+"', b'0');";
-		            sc.doRequest(sql_string);
+		            sc.doUpdate(sql_string);
 	        	}
 	        }   	
 	    		    	

@@ -7,7 +7,7 @@ import java.util.Date;
 public class User{
 
     private int id;
-    String pseudo;
+    private String pseudo;
     private String login;
     private String password;
     private String nom;
@@ -81,24 +81,24 @@ public class User{
         this.role = role;
     }
 
-    public Date getBirthdate() {
-        return birthdate;
+    public String getBirthdate() throws ParseException {
+        return new SimpleDateFormat("dd/MM/yyyy").format(birthdate);
     }
 
     public void setBirthdate(String birthdate) throws ParseException {
-        this.birthdate = new SimpleDateFormat("YYYY-MM-dd").parse(birthdate);
+        this.birthdate = new SimpleDateFormat("yyyy-MM-dd").parse(birthdate);
     }
-    
+
     public boolean getStatut() {
         return statut;
     }
 
     public void setStatut(int statut){
-    	if(statut==0) {
-    		this.statut = false;
-    	}
-    	else if(statut==1) {
-    		this.statut = true;
-    	}
+        if(statut==0) {
+            this.statut = false;
+        }
+        else if(statut==1) {
+            this.statut = true;
+        }
     }
 }

@@ -17,12 +17,10 @@ public class LogoutServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out=response.getWriter();
 
-        request.getRequestDispatcher("index.jsp").include(request, response);
-
         HttpSession session=request.getSession();
         session.invalidate();
 
-        out.print("T'es déco maramé");
+        request.getRequestDispatcher("/user_servlet").include(request, response);
 
         out.close();
     }
