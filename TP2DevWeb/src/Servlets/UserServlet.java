@@ -114,7 +114,6 @@ public class UserServlet extends HttpServlet {
         	        	users.add(sc.getUser(ids.get(i)));
         	        }
         	        
-        	        System.out.println(users.size());
 
         	        ArrayList<Event> events = sc.getAllEvent();
 
