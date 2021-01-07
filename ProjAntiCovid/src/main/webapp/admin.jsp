@@ -1,107 +1,369 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="Beans.User" %>
+<%@ page import="Beans.*" %>
+<%@ page import="Servlets.FriendsServlet" %>
+<jsp:useBean id="admin" class="Beans.Admin" scope="session" />
 
 <!DOCTYPE html>
+<html lang="en">
 <head>
-
-  	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
- 
+    <%@include file="WEB-INF/stylesheets.jsp" %>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/friends.css">
 
-    <title>Jumbotron Template for Bootstrap</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/jumbotron/">
-
-    <!-- Bootstrap core CSS -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
-
+    <title>Anticovid | Admin</title>
 </head>
 <body>
- <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+  <!-- PAGE LOADER -->
+  <%@include file="WEB-INF/page-loader.jsp" %>
+  <!-- /PAGE LOADER -->
+
+  <!-- NAVIGATION WIDGET -->
+  <%@include file="WEB-INF/nav-widget.jsp" %>
+  <!-- /NAVIGATION WIDGET -->
+
+  <!-- CHAT WIDGET -->
+  <%@include file="WEB-INF/chat-widget.jsp" %>
+  <!-- /CHAT WIDGET -->
+
+  <!-- HEADER -->
+  <%@include file="WEB-INF/header.jsp" %>
+  <!-- /HEADER -->
+
+  <!-- FLOATY BAR -->
+  <%@include file="WEB-INF/floaty-bar.jsp" %>
+  <!-- /FLOATY BAR -->
+
+  <!-- CONTENT GRID -->
+  <div class="content-grid">
+  
+    
+  	<div class="section-header">
+    <div class="section-header-info">
+        <!-- SECTION TITLE -->
+        <h2 class="section-title">Utilisateurs</h2>
+        <!-- /SECTION TITLE -->
+      </div>
+    </div>
+    <div class="calendar-widget">
+            <!-- CALENDAR EVENTS PREVIEW -->
+      <div class="calendar-events-preview-title">
+      <div class="calendar-events-preview">
+	      		<table>
+	      			<tr>
+	      				 <th><p class="calendar-events-preview-title">Pseudo</th>
+	      				 <th><p class="calendar-events-preview-title">Nom</p></th>
+	      				 <th><p class="calendar-events-preview-title">Prenom</p></th>
+	      				 <th><p class="calendar-events-preview-title">Statut</p></th>
+	      				 <th><p class="calendar-events-preview-title">Supprimer</p></th>
+	      				 <th><p class="calendar-events-preview-title">Modifier Statut</p></th>
+	      			</tr>
+				     	<c:forEach var="i" begin="0" end="${admin.getUsersSize()-1}" step="1">
+				     	<tr>
+				            <td><p class="calendar-events-preview-title">${admin.getUsers().get(i).getPseudo()}</p></td>
+				            <td><p class="calendar-events-preview-title">${admin.getUsers().get(i).getNom()}</p></td>
+				            <td><p class="calendar-events-preview-title">${admin.getUsers().get(i).getPrenom()}</p></td>
+				            <td>
+				            	<c:choose>
+									<c:when test="${admin.getUsers().get(i).getStatut()}"><p class="calendar-events-preview-title">Infected</p></c:when>
+									<c:otherwise><p class="calendar-events-preview-title">Not Infected</p></c:otherwise>
+								</c:choose>
+				            </td>
+				            <td>
+	      				 		<form action="user_servlet" method="POST">
+								    <button name="delete_user" value="${admin.getUsers().get(i).getId()}">Retirer</button>
+								</form>
+							</td>
+							
+							
+				            <td>
+				            	<c:choose>
+									<c:when test="${admin.getUsers().get(i).getStatut()}">
+			      				 		<form action="user_servlet" method="POST">
+										    <button name="positivite" value="${admin.getUsers().get(i).getId()}">Guerir</button>
+										</form>
+									</c:when>
+									<c:otherwise>
+			      				 		<form action="user_servlet" method="POST">
+										    <button name="positivite" value="${admin.getUsers().get(i).getId()}">Covided</button>
+										</form>
+									</c:otherwise>
+								</c:choose>
+				            </td>
+				        </tr>
+				      	</c:forEach>			      	
+		      	</table>
+	      </div>    
+      <!-- /CALENDAR EVENTS PREVIEW -->
+    </div>
+    <!-- /CALENDAR WIDGET -->
+    
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="section-header">
+    <div class="section-header-info">
+        <!-- SECTION TITLE -->
+        <h2 class="section-title">Events</h2>
+        <!-- /SECTION TITLE -->
+      </div>
+    </div>
+    
+    <div class="section-filters-bar v6">
+      <!-- SECTION FILTERS BAR ACTIONS -->
+      <div class="section-filters-bar-actions">
+        <!-- FORM -->
+        <form class="form">
+          <!-- FORM ITEM -->
+          <div class="form-item split">
+            <!-- FORM INPUT -->
+            <div class="form-input small">
             </div>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <!-- /FORM INPUT -->
+  
+          </div>
+          <!-- /FORM ITEM -->
         </form>
+        <!-- /FORM -->
       </div>
-    </nav>
-
-    <main role="main">
-
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <div class="container">
-          <h1 class="display-3">Hello, world!</h1>
-          <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-          <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-        </div>
+      <!-- /SECTION FILTERS BAR ACTIONS -->
+      
+      <!-- SECTION FILTERS BAR ACTIONS -->
+      <div class="section-filters-bar-actions">
+        <!-- BUTTON -->
+        <p class="button secondary popup-event-creation-trigger">+ Ajouter un Event</p>
+        <!-- /BUTTON -->
       </div>
+      <!-- /SECTION FILTERS BAR ACTIONS -->
+      
+  </div> 
+    <div class="calendar-widget">
+            <!-- CALENDAR EVENTS PREVIEW -->
+      <div class="calendar-events-preview-title">
+      <div class="calendar-events-preview">
+	      		<table>
+	      			<tr>
+	      				 <th><p class="calendar-events-preview-title">Date</th>
+                        <th><p class="calendar-events-preview-title">Heure debut</p></th>
+                        <th><p class="calendar-events-preview-title">Heure fin</p></th>
+                        <th><p class="calendar-events-preview-title">Lieu</p></th>
+	      				 <th><p class="calendar-events-preview-title">Event</p></th>
+	      				 <th><p class="calendar-events-preview-title">Supprimer</p></th>
+	      			</tr>
+				     	<c:forEach var="i" begin="0" end="${admin.getEventsSize()-1}" step="1">
+				     	<tr>
+				            <td><p class="calendar-events-preview-title">${admin.getEvents().get(i).getDate()}</p></td>
+                            <td><p class="calendar-events-preview-title">${admin.getEvents().get(i).getStart_hour()}</p></td>
+                            <td><p class="calendar-events-preview-title">${admin.getEvents().get(i).getEnd_hour()}</p></td>
+                            <td><p class="calendar-events-preview-title">${admin.getEvents().get(i).getLieu()}</p></td>
+				            <td><p class="calendar-events-preview-title">${admin.getEvents().get(i).getDescription()}</p></td>
+				            <td>
+	      				 		<form action="user_servlet" method="POST">
+								    <button name="delete_event" value="${admin.getEvents().get(i).getId()}">Retirer</button>
+								</form>
+							</td>
+				        </tr>
+				      	</c:forEach>	      	
+		      	</table>
+	      </div> 
+      <!-- /CALENDAR EVENTS PREVIEW -->
+    </div>
+    <!-- /CALENDAR WIDGET -->
+  
+  </div>
+  
+  
+  
+  
+  
+  
+  </div>
 
+  <!-- POPUP BOX -->
+  <div class="popup-box small popup-event-creation">
+    <!-- POPUP CLOSE BUTTON -->
+    <div class="popup-close-button popup-event-creation-trigger">
+      <!-- POPUP CLOSE BUTTON ICON -->
+      <svg class="popup-close-button-icon icon-cross">
+        <use xlink:href="#svg-cross"></use>
+      </svg>
+      <!-- /POPUP CLOSE BUTTON ICON -->
+    </div>
+    <!-- /POPUP CLOSE BUTTON -->
 
-     <div class="container">
-     	<div class="row">
-     	  	<h1>You are logged as an administrator!</h1>
-     	  	<hr>
-     	  	</br>
-     	  	</br>
-     	  	<div class="col-md-12">
-     	  	
-				<% User current_user = (User) session.getAttribute("current_user") ;%>
-				
-     	  		<h3> Your login is : <% out.print(current_user.getLogin()); %> </h3> 
-     	  		<h3> Your password is : <% out.print(current_user.getPassword()); %> </h3> 
-     	  		<h3> Your name is : <% out.print(current_user.getPrenom()); %> </h3> 
-     	  		<h3> Your last name is : <% out.print(current_user.getNom()); %> </h3> 
-     	  		
-     	  	</div>
-         <hr>
-     	</div>
-     </div>
+    <!-- POPUP BOX TITLE -->
+    <p class="popup-box-title">+ Ajouter un Event</p>
+    <!-- /POPUP BOX TITLE -->
 
-	<hr>
-	</br>
-    </main>
+      <!-- FORM -->
+      <form class="form" action="event" method="post">
 
-    <footer class="container">
-      <p>&copy; Company 2017-2018</p>
-    </footer>
+          <!-- FORM ROW -->
+          <div class="form-row">
+              <!-- FORM ITEM -->
+              <div class="form-item">
+                  <!-- FORM SELECT -->
+                  <div class="form-select">
+                      <label for="event-location">Event Location</label>
+                      <select id="event-location" name="event_location">
+                          <c:forEach items="${requestScope.locations}" var="location">
+                              <option value="${location.id}">${location.nom}</option>
+                          </c:forEach>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-  </body>
+                      </select>
+                      <!-- FORM SELECT ICON -->
+                      <svg class="form-select-icon icon-small-arrow">
+                          <use xlink:href="#svg-small-arrow"></use>
+                      </svg>
+                      <!-- /FORM SELECT ICON -->
+                  </div>
+                  <!-- /FORM SELECT -->
+              </div>
+              <!-- /FORM ITEM -->
+          </div>
+          <!-- /FORM ROW -->
+
+          <!-- FORM ROW -->
+          <div class="form-row">
+              <!-- FORM ITEM -->
+              <div class="form-item">
+                  <!-- FORM INPUT DECORATED -->
+                  <div class="form-input-decorated">
+                      <!-- FORM INPUT -->
+                      <div class="form-input small">
+                          <label for="event-date">Event Date dd/MM/YYYY</label>
+                          <input type="text" id="event-date" name="event_date">
+                      </div>
+                      <!-- /FORM INPUT -->
+
+                      <!-- FORM INPUT ICON -->
+                      <svg class="form-input-icon icon-events">
+                          <use xlink:href="#svg-events"></use>
+                      </svg>
+                      <!-- /FORM INPUT ICON -->
+                  </div>
+                  <!-- /FORM INPUT DECORATED -->
+              </div>
+              <!-- /FORM ITEM -->
+          </div>
+          <!-- /FORM ROW -->
+
+          <!-- FORM ROW -->
+          <div class="form-row">
+              <!-- FORM ITEM -->
+              <div class="form-item split join-on-mobile medium">
+                  <!-- FORM SELECT -->
+                  <div class="form-select">
+                      <label for="event-time-start">Start Time HH:mm</label>
+                      <input type="text" id="event-time-start" name="event_start">
+                      <!-- FORM SELECT ICON -->
+                      <svg class="form-select-icon icon-small-arrow">
+                          <use xlink:href="#svg-clock"></use>
+                      </svg>
+                      <!-- /FORM SELECT ICON -->
+                  </div>
+                  <!-- /FORM SELECT -->
+
+                  <!-- FORM SELECT -->
+                  <div class="form-select">
+                      <label for="event-time-end">End Time HH:mm</label>
+                      <input type="text" id="event-time-end" name="event_end">
+                      <!-- FORM SELECT ICON -->
+                      <svg class="form-select-icon icon-small-arrow">
+                          <use xlink:href="#svg-clock"></use>
+                      </svg>
+                      <!-- /FORM SELECT ICON -->
+                  </div>
+                  <!-- /FORM SELECT -->
+              </div>
+              <!-- /FORM ITEM -->
+          </div>
+          <!-- /FORM ROW -->
+
+          <!-- FORM ROW -->
+          <div class="form-row">
+              <!-- FORM ITEM -->
+              <div class="form-item">
+                  <!-- FORM INPUT -->
+                  <div class="form-input small">
+                      <label for="event-description">Event Description</label>
+                      <textarea id="event-description" name="event_description"></textarea>
+                  </div>
+                  <!-- /FORM INPUT -->
+              </div>
+              <!-- /FORM ITEM -->
+          </div>
+          <!-- /FORM ROW -->
+
+          <!-- POPUP BOX ACTIONS -->
+          <div class="popup-box-actions medium void">
+              <!-- POPUP BOX ACTION -->
+              <button type="submit" class="popup-box-action full button secondary">Create Event!</button>
+              <!-- /POPUP BOX ACTION -->
+          </div>
+          <!-- /POPUP BOX ACTIONS -->
+      </form>
+      <!-- /FORM -->
+  </div>
+  <!-- /POPUP BOX -->
+
+  <!-- POPUP EVENT -->
+  <div class="popup-event popup-event-information">
+    <!-- POPUP CLOSE BUTTON -->
+    <div class="popup-close-button popup-event-information-trigger">
+      <!-- POPUP CLOSE BUTTON ICON -->
+      <svg class="popup-close-button-icon icon-cross">
+        <use xlink:href="#svg-cross"></use>
+      </svg>
+      <!-- /POPUP CLOSE BUTTON ICON -->
+    </div>
+    <!-- /POPUP CLOSE BUTTON -->
+
+    <!-- POPUP EVENT COVER -->
+    <figure class="popup-event-cover liquid">
+      <img src="${pageContext.request.contextPath}/resources/img/cover/33.jpg" alt="cover-33">
+    </figure>
+    <!-- /POPUP EVENT COVER -->
+
+  </div>
+  <!-- /POPUP EVENT -->
+
+<!-- app -->
+<script src="${pageContext.request.contextPath}/resources/js/utils/app.js"></script>
+<!-- page loader -->
+<script src="${pageContext.request.contextPath}/resources/js/utils/page-loader.js"></script>
+<!-- simplebar -->
+<script src="${pageContext.request.contextPath}/resources/js/vendor/simplebar.min.js"></script>
+<!-- liquidify -->
+<script src="${pageContext.request.contextPath}/resources/js/utils/liquidify.js"></script>
+<!-- XM_Plugins -->
+<script src="${pageContext.request.contextPath}/resources/js/vendor/xm_plugins.min.js"></script>
+<!-- global.hexagons -->
+<script src="${pageContext.request.contextPath}/resources/js/global/global.hexagons.js"></script>
+<!-- global.tooltips -->
+<script src="${pageContext.request.contextPath}/resources/js/global/global.tooltips.js"></script>
+<!-- global.popups -->
+<script src="${pageContext.request.contextPath}/resources/js/global/global.popups.js"></script>
+<!-- header -->
+<script src="${pageContext.request.contextPath}/resources/js/header/header.js"></script>
+<!-- sidebar -->
+<script src="${pageContext.request.contextPath}/resources/js/sidebar/sidebar.js"></script>
+<!-- content -->
+<script src="${pageContext.request.contextPath}/resources/js/content/content.js"></script>
+<!-- form.utils -->
+<script src="${pageContext.request.contextPath}/resources/js/form/form.utils.js"></script>
+<!-- SVG icons -->
+<script src="${pageContext.request.contextPath}/resources/js/utils/svg-loader.js"></script>
+<!-- global.maps -->
+<script src="${pageContext.request.contextPath}/resources/js/global/global.maps.js"></script>
+<!-- google maps api -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</body>
 </html>

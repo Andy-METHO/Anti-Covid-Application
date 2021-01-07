@@ -103,17 +103,21 @@ public class FriendsServlet extends HttpServlet {
 
 	        if(pseudo!=null) {
 	        	if(friendslist.searchFriendbyPseudo(pseudo)==null) {
-	        		User addUser = sc.getUser(pseudo);
-	        		friendslist.addRequest_send(addUser);
+					User addUser = null;
+					try {
+						addUser = sc.getUser(pseudo);
+					} catch (SQLException throwables) {
+						throwables.printStackTrace();
+					}
+					friendslist.addRequest_send(addUser);
 	        		String sql_string =  "INSERT INTO `covid`.`ami` (`user1`, `user2`, `valide`) VALUES ('"+user_id+"', '"+addUser.getId()+"', b'0');";
 		            sc.doUpdate(sql_string);
 	        	}
 	        }   	
 	    		    	
 			session.setAttribute("friendslist", friendslist);
-			
-	        
-	        request.getRequestDispatcher( "/friend.jsp" ).forward( request, response );
+
+			request.getRequestDispatcher( "/friend.jsp" ).forward( request, response );
         }
     }
 }

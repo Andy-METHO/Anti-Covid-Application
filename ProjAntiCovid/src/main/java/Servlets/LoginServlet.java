@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class LoginServlet extends HttpServlet {
 
@@ -21,7 +22,12 @@ public class LoginServlet extends HttpServlet {
 
         if(!login.equals("") && !password.equals("")) {
 
-            User current_user = sc.getUser(login,password);
+            User current_user = null;
+            try {
+                current_user = sc.getUser(login,password);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
 
             session.setAttribute("current_user",current_user);
             request.setAttribute("current_user",current_user);

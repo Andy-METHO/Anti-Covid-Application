@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -64,7 +65,11 @@ public class PasswordServlet extends HttpServlet {
         }
 
 
-        session.setAttribute("current_user", sc.getUser(current_user.getId()));
+        try {
+            session.setAttribute("current_user", sc.getUser(current_user.getId()));
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         response.sendRedirect(request.getContextPath()+"/password_change");
     }
 

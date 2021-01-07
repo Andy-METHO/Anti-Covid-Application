@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Friends {
 
-    ArrayList<User> friends;
-    ArrayList<User> request_received;
-    ArrayList<User> request_send;
+    private ArrayList<User> friends;
+	private ArrayList<User> request_received;
+	private ArrayList<User> request_send;
     
     public Friends() {
     	super();

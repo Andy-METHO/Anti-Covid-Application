@@ -313,35 +313,6 @@
   </div>
   <!-- /POPUP EVENT -->
 
-<!-- app -->
-<script src="${pageContext.request.contextPath}/resources/js/utils/app.js"></script>
-<!-- page loader -->
-<script src="${pageContext.request.contextPath}/resources/js/utils/page-loader.js"></script>
-<!-- simplebar -->
-<script src="${pageContext.request.contextPath}/resources/js/vendor/simplebar.min.js"></script>
-<!-- liquidify -->
-<script src="${pageContext.request.contextPath}/resources/js/utils/liquidify.js"></script>
-<!-- XM_Plugins -->
-<script src="${pageContext.request.contextPath}/resources/js/vendor/xm_plugins.min.js"></script>
-<!-- global.hexagons -->
-<script src="${pageContext.request.contextPath}/resources/js/global/global.hexagons.js"></script>
-<!-- global.tooltips -->
-<script src="${pageContext.request.contextPath}/resources/js/global/global.tooltips.js"></script>
-<!-- global.popups -->
-<script src="${pageContext.request.contextPath}/resources/js/global/global.popups.js"></script>
-<!-- header -->
-<script src="${pageContext.request.contextPath}/resources/js/header/header.js"></script>
-<!-- sidebar -->
-<script src="${pageContext.request.contextPath}/resources/js/sidebar/sidebar.js"></script>
-<!-- content -->
-<script src="${pageContext.request.contextPath}/resources/js/content/content.js"></script>
-<!-- form.utils -->
-<script src="${pageContext.request.contextPath}/resources/js/form/form.utils.js"></script>
-<!-- SVG icons -->
-<script src="${pageContext.request.contextPath}/resources/js/utils/svg-loader.js"></script>
-<!-- global.maps -->
-<script src="${pageContext.request.contextPath}/resources/js/global/global.maps.js"></script>
-<!-- google maps api -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+  <%@include file="WEB-INF/scripts.jsp" %>
 </body>
 </html>

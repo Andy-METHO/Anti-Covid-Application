@@ -14,7 +14,7 @@
         <div class="user-avatar-content">
             <!-- HEXAGON -->
             <c:if test="${not empty current_user}">
-                <div class="hexagon-image-30-32" data-src="${pageContext.request.contextPath}/resources/img/${current_user.image}"></div>
+                <div class="hexagon-image-30-32" data-src="${pageContext.request.contextPath}/resources/img/avatar/${current_user.image}"></div>
             </c:if>
             <c:if test="${empty current_user}">
                 <div class="hexagon-image-30-32" data-src="${pageContext.request.contextPath}/resources/img/default_avatar.jpg"></div>

@@ -85,7 +85,12 @@
                 <!-- MENU MAIN ITEM -->
                 <li class="menu-main-item">
                     <!-- MENU MAIN ITEM LINK -->
-                    <a class="menu-main-item-link" href="#">Faqs</a>
+                    <c:if test="${not empty current_user}">
+                        <c:if test="${current_user.role == 'ADMIN'}">
+                            <a class="menu-main-item-link" href="admin">Admin</a>
+                        </c:if>
+                    </c:if>
+
                     <!-- /MENU MAIN ITEM LINK -->
                 </li>
                 <!-- /MENU MAIN ITEM -->

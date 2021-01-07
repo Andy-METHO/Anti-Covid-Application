@@ -33,7 +33,7 @@
         <div class="action-list dark">
 
             <!-- ACTION LIST ITEM -->
-            <a class="action-list-item" href="hub-profile-requests.html">
+            <a class="action-list-item" href="friends">
                 <!-- ACTION LIST ITEM ICON -->
                 <svg class="action-list-item-icon icon-friend">
                     <use xlink:href="#svg-friend"></use>
@@ -65,7 +65,7 @@
         <!-- /ACTION LIST -->
 
         <!-- ACTION ITEM WRAP -->
-        <a class="action-item-wrap" href="hub-profile-info.html">
+        <a class="action-item-wrap" href="account">
             <!-- ACTION ITEM -->
             <div class="action-item dark">
                 <!-- ACTION ITEM ICON -->

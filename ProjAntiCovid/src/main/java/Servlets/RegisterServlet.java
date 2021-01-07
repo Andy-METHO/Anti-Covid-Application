@@ -47,6 +47,10 @@ public class RegisterServlet extends HttpServlet {
                     System.out.println("Création de l'user");
                     if(succes){
                         System.out.println("Création réussie");
+
+                        User current_user = sc.getUser(pseudo);
+                        session.setAttribute("current_user",current_user);
+                        request.setAttribute("current_user",current_user);
                     }
                     else{
                         session.setAttribute("msg_err_register","Les données rentrées sont incorrectes !");

@@ -7,7 +7,7 @@ import java.util.Date;
 public class User{
 
     private int id;
-    String pseudo;
+    private String pseudo;
     private String login;
     private String password;
     private String nom;
