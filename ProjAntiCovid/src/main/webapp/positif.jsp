@@ -21,10 +21,6 @@
   <%@include file="WEB-INF/nav-widget.jsp" %>
   <!-- /NAVIGATION WIDGET -->
 
-  <!-- CHAT WIDGET -->
-  <%@include file="WEB-INF/chat-widget.jsp" %>
-  <!-- /CHAT WIDGET -->
-
   <!-- HEADER -->
   <%@include file="WEB-INF/header.jsp" %>
   <!-- /HEADER -->
@@ -51,7 +47,7 @@
       <div class="calendar-events-preview-title">
         <div class="calendar-events-preview">
           <p class="calendar-events-preview-title">Etes vous sur d'etre infecte par le covid-19 ?</p>
-          <form action="user_servlet" method="POST">
+          <form action="accueil" method="POST">
               <table>
                   <tr>
                       <td><div class="menu-item-link text-tooltip-tfr"><button name="positivite" value="positif">OUI</button></div></td>

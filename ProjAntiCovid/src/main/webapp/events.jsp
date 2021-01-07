@@ -17,10 +17,6 @@
   <%@include file="WEB-INF/nav-widget.jsp" %>
   <!-- /NAVIGATION WIDGET -->
 
-  <!-- CHAT WIDGET -->
-  <%@include file="WEB-INF/chat-widget.jsp" %>
-  <!-- /CHAT WIDGET -->
-
   <!-- HEADER -->
   <%@include file="WEB-INF/header.jsp" %>>
   <!-- /HEADER -->
@@ -122,26 +118,6 @@
               <!-- /VIEW ACTION ICON -->
             </a>
             <!-- /VIEW ACTION -->
-    
-            <!-- VIEW ACTION -->
-            <a class="view-action text-tooltip-tft-medium" href="events-weekly.html" data-title="Weekly">
-              <!-- VIEW ACTION ICON -->
-              <svg class="view-action-icon icon-events-weekly">
-                <use xlink:href="#svg-events-weekly"></use>
-              </svg>
-              <!-- /VIEW ACTION ICON -->
-            </a>
-            <!-- /VIEW ACTION -->
-    
-            <!-- VIEW ACTION -->
-            <a class="view-action text-tooltip-tft-medium" href="events-daily.html" data-title="Daily">
-              <!-- VIEW ACTION ICON -->
-              <svg class="view-action-icon icon-events-daily">
-                <use xlink:href="#svg-events-daily"></use>
-              </svg>
-              <!-- /VIEW ACTION ICON -->
-            </a>
-            <!-- /VIEW ACTION -->
           </div>
           <!-- /VIEW ACTIONS -->
         </div>
@@ -150,45 +126,43 @@
       <!-- /CALENDAR WIDGET HEADER -->
 
       <!-- CALENDAR EVENTS PREVIEW -->
-      <div class="calendar-events-preview">
+      <div class="calendar-events-preview" style="margin-top: 10px;">
         <!-- CALENDAR EVENTS PREVIEW TITLE -->
-        <p class="calendar-events-preview-title">Monday, August 13th - 2019</p>
+        <p class="calendar-events-preview-title">Vos activites : </p>
         <!-- /CALENDAR EVENTS PREVIEW TITLE -->
     
         <!-- CALENDAR EVENT PREVIEW LIST -->
-        <div class="calendar-event-preview-list">
-          <!-- CALENDAR EVENT PREVIEW -->
-          <div class="calendar-event-preview secondary">
-            <!-- CALENDAR EVENT PREVIEW START TIME -->
-            <div class="calendar-event-preview-start-time">
-              <!-- CALENDAR EVENT PREVIEW START TIME TITLE -->
-              <p class="calendar-event-preview-start-time-title">8:30</p>
-              <!-- /CALENDAR EVENT PREVIEW START TIME TITLE -->
+        <c:forEach items="${requestScope.events}" var="event">
+          <div class="calendar-event-preview-list">
+            <!-- CALENDAR EVENT PREVIEW -->
+            <div class="calendar-event-preview secondary">
+              <!-- CALENDAR EVENT PREVIEW START TIME -->
+              <div class="calendar-event-preview-start-time">
+                <!-- CALENDAR EVENT PREVIEW START TIME TITLE -->
+                <p class="calendar-event-preview-start-time-title">${event.start_hour}</p>
+                <!-- /CALENDAR EVENT PREVIEW START TIME TITLE -->
+              </div>
+              <!-- /CALENDAR EVENT PREVIEW START TIME -->
 
-              <!-- CALENDAR EVENT PREVIEW START TIME TEXT -->
-              <p class="calendar-event-preview-start-time-text">AM</p>
-              <!-- /CALENDAR EVENT PREVIEW START TIME TEXT -->
+              <!-- CALENDAR EVENT PREVIEW INFO -->
+              <div class="calendar-event-preview-info">
+                <!-- CALENDAR EVENT PREVIEW TITLE -->
+                <p class="calendar-event-preview-title popup-event-information-trigger">${event.date} - ${event.lieu}</p>
+                <!-- /CALENDAR EVENT PREVIEW TITLE -->
+
+                <!-- CALENDAR EVENT PREVIEW TEXT -->
+                <p class="calendar-event-preview-text">${event.description}</p>
+                <!-- /CALENDAR EVENT PREVIEW TEXT -->
+
+                <!-- CALENDAR EVENT PREVIEW TITLE -->
+                <p class="calendar-event-preview-time"><span class="bold">${event.start_hour}</span> - <span class="bold">${event.end_hour}</span></p>
+                <!-- /CALENDAR EVENT PREVIEW TITLE -->
+              </div>
+              <!-- /CALENDAR EVENT PREVIEW INFO -->
             </div>
-            <!-- /CALENDAR EVENT PREVIEW START TIME -->
-
-            <!-- CALENDAR EVENT PREVIEW INFO -->
-            <div class="calendar-event-preview-info">
-              <!-- CALENDAR EVENT PREVIEW TITLE -->
-              <p class="calendar-event-preview-title popup-event-information-trigger">Breakfast with Neko</p>
-              <!-- /CALENDAR EVENT PREVIEW TITLE -->
-
-              <!-- CALENDAR EVENT PREVIEW TEXT -->
-              <p class="calendar-event-preview-text">Hi Neko! I'm creating this event to invite you to have breakfast before work. Meet me at Coffebucks.</p>
-              <!-- /CALENDAR EVENT PREVIEW TEXT -->
-
-              <!-- CALENDAR EVENT PREVIEW TITLE -->
-              <p class="calendar-event-preview-time"><span class="bold">8:30</span> AM</p>
-              <!-- /CALENDAR EVENT PREVIEW TITLE -->
-            </div>
-            <!-- /CALENDAR EVENT PREVIEW INFO -->
+            <!-- /CALENDAR EVENT PREVIEW -->
           </div>
-          <!-- /CALENDAR EVENT PREVIEW -->
-        </div>
+        </c:forEach>
         <!-- /CALENDAR EVENT PREVIEW LIST -->
       </div>
       <!-- /CALENDAR EVENTS PREVIEW -->
@@ -215,7 +189,6 @@
 
     <!-- FORM -->
     <form class="form" action="event" method="post">
-
       <!-- FORM ROW -->
       <div class="form-row">
         <!-- FORM ITEM -->
@@ -227,7 +200,6 @@
               <c:forEach items="${requestScope.locations}" var="location">
                 <option value="${location.id}">${location.nom}</option>
               </c:forEach>
-
             </select>
             <!-- FORM SELECT ICON -->
             <svg class="form-select-icon icon-small-arrow">
@@ -235,6 +207,7 @@
             </svg>
             <!-- /FORM SELECT ICON -->
           </div>
+          <a href="location"><p class="button secondary" style="display: ruby;">+ Add Lieu</p></a>
           <!-- /FORM SELECT -->
         </div>
         <!-- /FORM ITEM -->
@@ -324,102 +297,6 @@
     <!-- /FORM -->
   </div>
   <!-- /POPUP BOX -->
-
-  <!-- POPUP EVENT -->
-  <div class="popup-event popup-event-information">
-    <!-- POPUP CLOSE BUTTON -->
-    <div class="popup-close-button popup-event-information-trigger">
-      <!-- POPUP CLOSE BUTTON ICON -->
-      <svg class="popup-close-button-icon icon-cross">
-        <use xlink:href="#svg-cross"></use>
-      </svg>
-      <!-- /POPUP CLOSE BUTTON ICON -->
-    </div>
-    <!-- /POPUP CLOSE BUTTON -->
-
-    <!-- POPUP EVENT COVER -->
-    <figure class="popup-event-cover liquid">
-      <img src="${pageContext.request.contextPath}/resources/img/cover/33.jpg" alt="cover-33">
-    </figure>
-    <!-- /POPUP EVENT COVER -->
-
-    <!-- POPUP EVENT INFO -->
-    <div class="popup-event-info">
-      <!-- POPUP EVENT TITLE -->
-      <p class="popup-event-title">CosWorld 2019 After Party</p>
-      <!-- /POPUP EVENT TITLE -->
-
-      <!-- DECORATED FEATURE LIST -->
-      <div class="decorated-feature-list">
-        <!-- DECORATED FEATURE -->
-        <div class="decorated-feature">
-          <!-- DECORATED FEATURE ICON -->
-          <svg class="decorated-feature-icon icon-events">
-            <use xlink:href="#svg-events"></use>
-          </svg>
-          <!-- /DECORATED FEATURE ICON -->
-
-          <!-- DECORATED FEATURE INFO -->
-          <div class="decorated-feature-info">
-            <!-- DECORATED FEATURE TITLE -->
-            <p class="decorated-feature-title">Sunday, August 26th - 2019</p>
-            <!-- /DECORATED FEATURE TITLE -->
-
-            <!-- DECORATED FEATURE TEXT -->
-            <p class="decorated-feature-text">8:30 AM</p>
-            <!-- /DECORATED FEATURE TEXT -->
-          </div>
-          <!-- /DECORATED FEATURE INFO -->
-        </div>
-        <!-- /DECORATED FEATURE -->
-
-        <!-- DECORATED FEATURE -->
-        <div class="decorated-feature">
-          <!-- DECORATED FEATURE ICON -->
-          <svg class="decorated-feature-icon icon-pin">
-            <use xlink:href="#svg-pin"></use>
-          </svg>
-          <!-- /DECORATED FEATURE ICON -->
-
-          <!-- DECORATED FEATURE INFO -->
-          <div class="decorated-feature-info">
-            <!-- DECORATED FEATURE TITLE -->
-            <p class="decorated-feature-title">CosWorld Arena</p>
-            <!-- /DECORATED FEATURE TITLE -->
-
-            <!-- DECORATED FEATURE TEXT -->
-            <p class="decorated-feature-text">Alchemists Avenue 310 - NY 10001 New York - USA</p>
-            <!-- /DECORATED FEATURE TEXT -->
-          </div>
-          <!-- /DECORATED FEATURE INFO -->
-        </div>
-        <!-- /DECORATED FEATURE -->
-      </div>
-      <!-- /DECORATED FEATURE LIST -->
-
-      <!-- POPUP EVENT SUBTITLE -->
-      <p class="popup-event-subtitle">Description</p>
-      <!-- /POPUP EVENT SUBTITLE -->
-
-      <!-- POPUP EVENT TEXT -->
-      <p class="popup-event-text">Join us at the CosWorld after party! We'll be eating, drinking and having a great time exchanging experiences from the convention</p>
-      <!-- /POPUP EVENT TEXT -->
-
-      <!-- POPUP EVENT SUBTITLE -->
-      <p class="popup-event-subtitle">Google Map</p>
-      <!-- /POPUP EVENT SUBTITLE -->
-
-      <!-- GOOGLE MAP -->
-      <div id="g-map" class="g-map"></div>
-      <!-- /GOOGLE MAP -->
-
-      <!-- POPUP EVENT BUTTON -->
-      <p class="popup-event-button button tertiary popup-event-information-trigger">Remove from Calendar</p>
-      <!-- /POPUP EVENT BUTTON -->
-    </div>
-    <!-- /POPUP EVENT INFO -->
-  </div>
-  <!-- /POPUP EVENT -->
 
   <%@include file="WEB-INF/scripts.jsp" %>
 </body>

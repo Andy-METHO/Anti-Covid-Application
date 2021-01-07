@@ -44,7 +44,7 @@
         <!-- MENU ITEM -->
         <li class="menu-item">
             <!-- MENU ITEM LINK -->
-            <a class="menu-item-link text-tooltip-tfr" href="members.html" data-title="Members">
+            <a class="menu-item-link text-tooltip-tfr" href="friends" data-title="Members">
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-members">
                     <use xlink:href="#svg-members"></use>
@@ -56,9 +56,9 @@
         <!-- /MENU ITEM -->
 
         <!-- MENU ITEM -->
-        <li class="menu-item active">
+        <li class="menu-item">
             <!-- MENU ITEM LINK -->
-            <a class="menu-item-link text-tooltip-tfr" href="events.html" data-title="Events">
+            <a class="menu-item-link text-tooltip-tfr" href="event" data-title="Events">
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-events">
                     <use xlink:href="#svg-events"></use>
@@ -140,7 +140,7 @@
         <!-- MENU ITEM -->
         <li class="menu-item">
             <!-- MENU ITEM LINK -->
-            <a class="menu-item-link" href="members.html">
+            <a class="menu-item-link" href="friends">
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-members">
                     <use xlink:href="#svg-members"></use>
@@ -153,9 +153,9 @@
         <!-- /MENU ITEM -->
 
         <!-- MENU ITEM -->
-        <li class="menu-item active">
+        <li class="menu-item">
             <!-- MENU ITEM LINK -->
-            <a class="menu-item-link" href="events.jsp">
+            <a class="menu-item-link" href="accueil">
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-events">
                     <use xlink:href="#svg-events"></use>
@@ -192,7 +192,13 @@
                 <!-- USER AVATAR CONTENT -->
                 <div class="user-avatar-content">
                     <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32" data-src="${pageContext.request.contextPath}/resources/img/avatar/01.jpg"></div>
+                    <c:if test="${not empty current_user}">
+                        <div class="hexagon-image-30-32" data-src="${pageContext.request.contextPath}/resources/img/avatar/${current_user.image}"></div>
+                    </c:if>
+                    <c:if test="${empty current_user}">
+                        <div class="hexagon-image-82-90" data-src="${pageContext.request.contextPath}/resources/img/avatar/default_avatar.jpg"></div>
+                    </c:if>
+
                     <!-- /HEXAGON -->
                 </div>
                 <!-- /USER AVATAR CONTENT -->
@@ -284,7 +290,7 @@
         <!-- MENU ITEM -->
         <li class="menu-item">
             <!-- MENU ITEM LINK -->
-            <a class="menu-item-link" href="members.html">
+            <a class="menu-item-link" href="friends">
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-members">
                     <use xlink:href="#svg-members"></use>
@@ -297,9 +303,9 @@
         <!-- /MENU ITEM -->
 
         <!-- MENU ITEM -->
-        <li class="menu-item active">
+        <li class="menu-item">
             <!-- MENU ITEM LINK -->
-            <a class="menu-item-link" href="events.html">
+            <a class="menu-item-link" href="accueil">
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-events">
                     <use xlink:href="#svg-events"></use>
@@ -350,7 +356,7 @@
     <!-- /NAVIGATION WIDGET SECTION TITLE -->
 
     <!-- NAVIGATION WIDGET SECTION LINK -->
-    <a class="navigation-widget-section-link" href="user_servlet">Home</a>
+    <a class="navigation-widget-section-link" href="accueil">Home</a>
     <!-- /NAVIGATION WIDGET SECTION LINK -->
 
 </nav>

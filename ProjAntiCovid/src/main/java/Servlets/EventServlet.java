@@ -83,6 +83,6 @@ public class EventServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect(request.getHeader("referer"));
+        response.sendRedirect(request.getHeader("referer")); //ramène à la dernière page
     }
 }

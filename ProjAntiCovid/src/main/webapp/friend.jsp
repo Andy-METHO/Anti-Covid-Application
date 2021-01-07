@@ -22,10 +22,6 @@
   <%@include file="WEB-INF/nav-widget.jsp" %>
   <!-- /NAVIGATION WIDGET -->
 
-  <!-- CHAT WIDGET -->
-  <%@include file="WEB-INF/chat-widget.jsp" %>
-  <!-- /CHAT WIDGET -->
-
   <!-- HEADER -->
   <%@include file="WEB-INF/header.jsp" %>
   <!-- /HEADER -->
@@ -134,14 +130,6 @@
     
   </div>
   
-  
-  
-  
-  
-  
-  
-  
-  
   <div class="section-header">
     <div class="section-header-info">
         <!-- SECTION TITLE -->
@@ -195,9 +183,6 @@
     <!-- /CALENDAR WIDGET -->
   
   </div>
-  
-  
-  
   
   
   <div class="section-header">

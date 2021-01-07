@@ -49,7 +49,7 @@
 
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
-        <url-pattern>/user_servlet</url-pattern>
+        <url-pattern>/accueil</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -110,5 +110,15 @@
     <servlet-mapping>
         <servlet-name>EventServlet</servlet-name>
         <url-pattern>/event</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LocationServlet</servlet-name>
+        <servlet-class>Servlets.LocationServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LocationServlet</servlet-name>
+        <url-pattern>/location</url-pattern>
     </servlet-mapping>
 </web-app>

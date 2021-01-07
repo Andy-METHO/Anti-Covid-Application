@@ -50,11 +50,11 @@ public class LoginServlet extends HttpServlet {
             System.out.println("login échoué");
         }
 
-        response.sendRedirect("user_servlet");
+        response.sendRedirect("accueil");
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("user_servlet");
+        response.sendRedirect("accueil");
     }
 }

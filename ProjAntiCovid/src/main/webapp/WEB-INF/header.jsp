@@ -69,7 +69,7 @@
                 <!-- MENU MAIN ITEM -->
                 <li class="menu-main-item">
                     <!-- MENU MAIN ITEM LINK -->
-                    <a class="menu-main-item-link" href="user_servlet">Home</a>
+                    <a class="menu-main-item-link" href="accueil">Home</a>
                     <!-- /MENU MAIN ITEM LINK -->
                 </li>
                 <!-- /MENU MAIN ITEM -->

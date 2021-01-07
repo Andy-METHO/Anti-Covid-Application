@@ -40,7 +40,9 @@ public class UserServlet extends HttpServlet {
             if(current_user.getRole().trim().equals("USER") || current_user.getRole().trim().equals("ADMIN")) {
                 ConnexionBDD sc = new ConnexionBDD();
                 ArrayList<Location> locations = sc.getAllLocations();
+                ArrayList<Event> events = sc.getAllEvent();
                 request.setAttribute("locations", locations);
+                request.setAttribute("events", events);
                 request.getRequestDispatcher( "/events.jsp" ).forward( request, response );
             }
         }

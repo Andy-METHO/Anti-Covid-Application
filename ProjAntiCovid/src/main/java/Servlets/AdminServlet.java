@@ -30,11 +30,11 @@ public class AdminServlet extends HttpServlet {
         User current_user = (User) session.getAttribute("current_user");
 
         if(current_user == null){
-            request.getRequestDispatcher( "/user_servlet" ).forward( request, response );
+            request.getRequestDispatcher( "/accueil" ).forward( request, response );
         }
         else if(current_user.getRole().trim().equals("ADMIN")) {
             int user_id = current_user.getId();
-            //String user_del =  request.getParameter("user_del");
+
             ConnexionBDD sc = new ConnexionBDD();
 
             String description =  request.getParameter("description");
@@ -83,8 +83,6 @@ public class AdminServlet extends HttpServlet {
                 sc.doUpdate(sql_update_user);
             }
 
-
-
             String usersid_sql = "SELECT id FROM User WHERE id!="+current_user.getId()+";";
             ArrayList<Integer> ids = new ArrayList<Integer>();
             ResultSet res = sc.doRequest(usersid_sql);
@@ -94,7 +92,6 @@ public class AdminServlet extends HttpServlet {
                 }
             }
             catch (SQLException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
 
@@ -109,18 +106,29 @@ public class AdminServlet extends HttpServlet {
 
             System.out.println(users.size());
 
+            String delete_location =  request.getParameter("delete_location");
+
+            if(delete_location!=null) {
+                int locationId = Integer.parseInt(delete_location);
+                String sql_update_event_location =  "UPDATE `Event` SET `lieu` = null WHERE `Event`.`lieu` ="+locationId+";";
+                String sql_delete_location =  "DELETE FROM Location WHERE `id`="+locationId+";";
+                sc.doUpdate(sql_update_event_location);
+                sc.doUpdate(sql_delete_location);
+            }
+
             ArrayList<Event> events = sc.getAllEvent();
-
-            Admin admin = new Admin(users,events);
-
             ArrayList<Location> locations = sc.getAllLocations();
+
+            Admin admin = new Admin(users,events, locations);
+
+
             request.setAttribute("locations", locations);
 
             session.setAttribute("admin", admin);
             request.getRequestDispatcher( "/admin.jsp" ).forward( request, response );
         }
         else{
-            request.getRequestDispatcher( "/user_servlet" ).forward( request, response );
+            request.getRequestDispatcher( "/accueil" ).forward( request, response );
         }
     }
 }

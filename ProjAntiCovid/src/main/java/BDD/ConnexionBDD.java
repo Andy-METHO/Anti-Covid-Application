@@ -258,6 +258,62 @@ public class ConnexionBDD {
         return false;
     }
 
+    public boolean createLocation(String nom, String adresse, float latitude, float longitude) {
+        Connection con = connect();
+
+        try {
+            String rqString = "INSERT INTO Location (nom, adresse, latitude, longitude) VALUES (?, ?, ?, ?)";
+            PreparedStatement preparedStatement = con.prepareStatement(rqString);
+            preparedStatement.setString(1, nom);
+            preparedStatement.setString(2, adresse);
+            preparedStatement.setFloat(3, latitude);
+            preparedStatement.setFloat(4, longitude);
+
+            if(preparedStatement.executeUpdate()>0){
+                return true;
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    public boolean createLocation(String nom, String adresse) {
+        Connection con = connect();
+
+        try {
+            String rqString = "INSERT INTO Location (nom, adresse) VALUES (?, ?)";
+            PreparedStatement preparedStatement = con.prepareStatement(rqString);
+            preparedStatement.setString(1, nom);
+            preparedStatement.setString(2, adresse);
+
+            if(preparedStatement.executeUpdate()>0){
+                return true;
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    public boolean locationExists(String nom, String adresse) throws SQLException {
+
+        String rqString = "Select * from Location where nom=? AND adresse=?;";
+        PreparedStatement preparedStatement = this.connect().prepareStatement(rqString);
+        preparedStatement.setString(1, nom);
+        preparedStatement.setString(2, adresse);
+        ResultSet res = preparedStatement.executeQuery();
+        if(res.next()){
+            return true;
+        }
+
+        return false;
+    }
+
     public ResultSet doRequest(String sql_string) {
         ResultSet results = null;
         Connection con = connect();

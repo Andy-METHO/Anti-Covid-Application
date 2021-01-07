@@ -75,11 +75,11 @@ public class RegisterServlet extends HttpServlet {
             request.setAttribute("current_user",null);
         }
 
-        response.sendRedirect(request.getContextPath()+"/user_servlet");
+        response.sendRedirect(request.getContextPath()+"/accueil");
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher( "/user_servlet" ).forward( request, response );
+        request.getRequestDispatcher( "/accueil" ).forward( request, response );
     }
 }
