@@ -61,7 +61,6 @@ public class FriendsServlet extends HttpServlet {
 	        		request_send.add(sc.getUser(results.getString(2)));
 	        	}
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	    	
@@ -73,8 +72,8 @@ public class FriendsServlet extends HttpServlet {
 	    		String sql_string_deletefriend =  "DELETE FROM `covid`.`ami` WHERE  ((`user1`="+current_user.getId()+" AND `user2`="+userdeletefriend.getId()+") OR (`user1`="+userdeletefriend.getId()+" AND `user2`="+current_user.getId()+")) AND `valide`=b'1' LIMIT 1;";
 	    		sc.doUpdate(sql_string_deletefriend);
 	    		friendslist.removeFriends(userdeletefriend);
+	    		sc.createNotif(userdeletefriend.getId(), current_user.getId(), "Quelqu'un vous a retiré de sa liste d'amis");
 	    	}
-
 	    	
 	    	String deleteRequest_received =  request.getParameter("deleteRequest_received");
 	    	if(deleteRequest_received!=null){
@@ -113,9 +112,19 @@ public class FriendsServlet extends HttpServlet {
 	        		String sql_string =  "INSERT INTO `covid`.`ami` (`user1`, `user2`, `valide`) VALUES ('"+user_id+"', '"+addUser.getId()+"', b'0');";
 		            sc.doUpdate(sql_string);
 	        	}
-	        }   	
-	    		    	
+	        }
+
 			session.setAttribute("friendslist", friendslist);
+
+			try {
+				ArrayList<Notif> notifs = sc.getUserNotifications(current_user.getId());
+				ArrayList<Notif> unreadNotifs = sc.getUnreadNotifications(current_user.getId());
+				session.setAttribute("notifs", notifs);
+				session.setAttribute("unread", unreadNotifs);
+				System.out.println("fait");
+			} catch (SQLException throwables) {
+				throwables.printStackTrace();
+			}
 
 			request.getRequestDispatcher( "/friend.jsp" ).forward( request, response );
         }

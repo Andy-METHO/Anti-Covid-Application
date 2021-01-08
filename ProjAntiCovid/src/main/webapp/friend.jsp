@@ -32,7 +32,7 @@
 
   <!-- CONTENT GRID -->
   <div class="content-grid">
-  
+
   <div class="section-header">
       <!-- SECTION HEADER INFO -->
       <div class="section-header-info">
@@ -56,7 +56,7 @@
               <input type="text" id="events-search" name="events_search">
             </div>
             <!-- /FORM INPUT -->
-  
+
             <!-- BUTTON -->
             <button class="button primary">
               <!-- ICON MAGNIFYING GLASS -->
@@ -72,7 +72,7 @@
         <!-- /FORM -->
       </div>
       <!-- /SECTION FILTERS BAR ACTIONS -->
-      
+
       <!-- SECTION FILTERS BAR ACTIONS -->
       <div class="section-filters-bar-actions">
         <!-- BUTTON -->
@@ -80,8 +80,8 @@
         <!-- /BUTTON -->
       </div>
       <!-- /SECTION FILTERS BAR ACTIONS -->
-      
-  </div> 
+
+  </div>
   	<div class="section-header">
     <div class="section-header-info">
         <!-- SECTION TITLE -->
@@ -116,20 +116,20 @@
 								</form>
 							</td>
 				        </tr>
-				      	</c:forEach>			      	
+				      	</c:forEach>
 		      	</table>
-	      </div>    
+	      </div>
       </c:when>
       <c:otherwise>
-	      
+
 	  </c:otherwise>
 	  </c:choose>
       <!-- /CALENDAR EVENTS PREVIEW -->
     </div>
     <!-- /CALENDAR WIDGET -->
-    
+
   </div>
-  
+
   <div class="section-header">
     <div class="section-header-info">
         <!-- SECTION TITLE -->
@@ -170,21 +170,21 @@
 								</form>
 							</td>
 				        </tr>
-				      	</c:forEach>			      	
+				      	</c:forEach>
 		      	</table>
-	      </div>    
+	      </div>
       </c:when>
       <c:otherwise>
-	      
+
 	  </c:otherwise>
 	  </c:choose>
       <!-- /CALENDAR EVENTS PREVIEW -->
     </div>
     <!-- /CALENDAR WIDGET -->
-  
+
   </div>
-  
-  
+
+
   <div class="section-header">
     <div class="section-header-info">
         <!-- SECTION TITLE -->
@@ -219,18 +219,18 @@
 								</form>
 							</td>
 				        </tr>
-				      	</c:forEach>			      	
+				      	</c:forEach>
 		      	</table>
-	      </div>    
+	      </div>
       </c:when>
       <c:otherwise>
-	      
+
 	  </c:otherwise>
 	  </c:choose>
       <!-- /CALENDAR EVENTS PREVIEW -->
     </div>
     <!-- /CALENDAR WIDGET -->
-    
+
     </div>
   </div>
 

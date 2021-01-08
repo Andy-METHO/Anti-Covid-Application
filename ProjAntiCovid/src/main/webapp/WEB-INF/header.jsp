@@ -438,279 +438,29 @@
     <div class="header-actions">
         <!-- ACTION LIST -->
         <div class="action-list dark">
-            <div class="action-list-item-wrap">
-                <!-- ACTION LIST ITEM -->
-                <div class="action-list-item header-dropdown-trigger">
-                    <!-- ACTION LIST ITEM ICON -->
-                    <svg class="action-list-item-icon icon-friend">
-                        <use xlink:href="#svg-friend"></use>
-                    </svg>
-                    <!-- /ACTION LIST ITEM ICON -->
-                </div>
-                <!-- /ACTION LIST ITEM -->
-
-                <!-- DROPDOWN BOX -->
-                <div class="dropdown-box header-dropdown">
-                    <!-- DROPDOWN BOX HEADER -->
-                    <div class="dropdown-box-header">
-                        <!-- DROPDOWN BOX HEADER TITLE -->
-                        <p class="dropdown-box-header-title">Friend Requests</p>
-                        <!-- /DROPDOWN BOX HEADER TITLE -->
-
-                        <!-- DROPDOWN BOX HEADER ACTIONS -->
-                        <div class="dropdown-box-header-actions">
-                            <!-- DROPDOWN BOX HEADER ACTION -->
-                            <p class="dropdown-box-header-action">Find Friends</p>
-                            <!-- /DROPDOWN BOX HEADER ACTION -->
-
-                            <!-- DROPDOWN BOX HEADER ACTION -->
-                            <p class="dropdown-box-header-action">Settings</p>
-                            <!-- /DROPDOWN BOX HEADER ACTION -->
-                        </div>
-                        <!-- /DROPDOWN BOX HEADER ACTIONS -->
-                    </div>
-                    <!-- /DROPDOWN BOX HEADER -->
-
-                    <!-- DROPDOWN BOX LIST -->
-                    <div class="dropdown-box-list no-hover" data-simplebar>
-                        <!-- DROPDOWN BOX LIST ITEM -->
-                        <div class="dropdown-box-list-item">
-                            <!-- USER STATUS -->
-                            <div class="user-status request">
-                                <!-- USER STATUS AVATAR -->
-                                <a class="user-status-avatar" href="profile-timeline.html">
-                                    <!-- USER AVATAR -->
-                                    <div class="user-avatar small no-outline">
-                                        <!-- USER AVATAR CONTENT -->
-                                        <div class="user-avatar-content">
-                                            <!-- HEXAGON -->
-                                            <div class="hexagon-image-30-32" data-src="${pageContext.request.contextPath}/resources/img/avatar/16.jpg"></div>
-                                            <!-- /HEXAGON -->
-                                        </div>
-                                        <!-- /USER AVATAR CONTENT -->
-
-                                        <!-- USER AVATAR PROGRESS -->
-                                        <div class="user-avatar-progress">
-                                            <!-- HEXAGON -->
-                                            <div class="hexagon-progress-40-44"></div>
-                                            <!-- /HEXAGON -->
-                                        </div>
-                                        <!-- /USER AVATAR PROGRESS -->
-
-                                        <!-- USER AVATAR PROGRESS BORDER -->
-                                        <div class="user-avatar-progress-border">
-                                            <!-- HEXAGON -->
-                                            <div class="hexagon-border-40-44"></div>
-                                            <!-- /HEXAGON -->
-                                        </div>
-                                        <!-- /USER AVATAR PROGRESS BORDER -->
-
-                                        <!-- USER AVATAR BADGE -->
-                                        <div class="user-avatar-badge">
-                                            <!-- USER AVATAR BADGE BORDER -->
-                                            <div class="user-avatar-badge-border">
-                                                <!-- HEXAGON -->
-                                                <div class="hexagon-22-24"></div>
-                                                <!-- /HEXAGON -->
-                                            </div>
-                                            <!-- /USER AVATAR BADGE BORDER -->
-
-                                            <!-- USER AVATAR BADGE CONTENT -->
-                                            <div class="user-avatar-badge-content">
-                                                <!-- HEXAGON -->
-                                                <div class="hexagon-dark-16-18"></div>
-                                                <!-- /HEXAGON -->
-                                            </div>
-                                            <!-- /USER AVATAR BADGE CONTENT -->
-
-                                            <!-- USER AVATAR BADGE TEXT -->
-                                            <p class="user-avatar-badge-text">14</p>
-                                            <!-- /USER AVATAR BADGE TEXT -->
-                                        </div>
-                                        <!-- /USER AVATAR BADGE -->
-                                    </div>
-                                    <!-- /USER AVATAR -->
-                                </a>
-                                <!-- /USER STATUS AVATAR -->
-
-                                <!-- USER STATUS TITLE -->
-                                <p class="user-status-title"><a class="bold" href="profile-timeline.html">Ginny Danvers</a></p>
-                                <!-- /USER STATUS TITLE -->
-
-                                <!-- USER STATUS TEXT -->
-                                <p class="user-status-text">6 friends in common</p>
-                                <!-- /USER STATUS TEXT -->
-
-                                <!-- ACTION REQUEST LIST -->
-                                <div class="action-request-list">
-                                    <!-- ACTION REQUEST -->
-                                    <div class="action-request accept">
-                                        <!-- ACTION REQUEST ICON -->
-                                        <svg class="action-request-icon icon-add-friend">
-                                            <use xlink:href="#svg-add-friend"></use>
-                                        </svg>
-                                        <!-- /ACTION REQUEST ICON -->
-                                    </div>
-                                    <!-- /ACTION REQUEST -->
-
-                                    <!-- ACTION REQUEST -->
-                                    <div class="action-request decline">
-                                        <!-- ACTION REQUEST ICON -->
-                                        <svg class="action-request-icon icon-remove-friend">
-                                            <use xlink:href="#svg-remove-friend"></use>
-                                        </svg>
-                                        <!-- /ACTION REQUEST ICON -->
-                                    </div>
-                                    <!-- /ACTION REQUEST -->
-                                </div>
-                                <!-- ACTION REQUEST LIST -->
-                            </div>
-                            <!-- /USER STATUS -->
-                        </div>
-                        <!-- /DROPDOWN BOX LIST ITEM -->
-                    </div>
-                    <!-- /DROPDOWN BOX LIST -->
-
-                    <!-- DROPDOWN BOX BUTTON -->
-                    <a class="dropdown-box-button secondary" href="hub-profile-requests.html">View all Requests</a>
-                    <!-- /DROPDOWN BOX BUTTON -->
-                </div>
-                <!-- /DROPDOWN BOX -->
-            </div>
-            <!-- /ACTION LIST ITEM WRAP -->
-
             <!-- ACTION LIST ITEM WRAP -->
             <div class="action-list-item-wrap">
                 <!-- ACTION LIST ITEM -->
-                <div class="action-list-item header-dropdown-trigger">
-                    <!-- ACTION LIST ITEM ICON -->
-                    <svg class="action-list-item-icon icon-messages">
-                        <use xlink:href="#svg-messages"></use>
-                    </svg>
-                    <!-- /ACTION LIST ITEM ICON -->
-                </div>
-                <!-- /ACTION LIST ITEM -->
-
-                <!-- DROPDOWN BOX -->
-                <div class="dropdown-box header-dropdown">
-                    <!-- DROPDOWN BOX HEADER -->
-                    <div class="dropdown-box-header">
-                        <!-- DROPDOWN BOX HEADER TITLE -->
-                        <p class="dropdown-box-header-title">Messages</p>
-                        <!-- /DROPDOWN BOX HEADER TITLE -->
-
-                        <!-- DROPDOWN BOX HEADER ACTIONS -->
-                        <div class="dropdown-box-header-actions">
-                            <!-- DROPDOWN BOX HEADER ACTION -->
-                            <p class="dropdown-box-header-action">Mark all as Read</p>
-                            <!-- /DROPDOWN BOX HEADER ACTION -->
-
-                            <!-- DROPDOWN BOX HEADER ACTION -->
-                            <p class="dropdown-box-header-action">Settings</p>
-                            <!-- /DROPDOWN BOX HEADER ACTION -->
+                <c:choose>
+                    <c:when test="${not empty unread && unread.size() !=0}">
+                        <div class="action-list-item unread header-dropdown-trigger">
+                            <!-- ACTION LIST ITEM ICON -->
+                            <svg class="action-list-item-icon icon-notification">
+                                <use xlink:href="#svg-notification"></use>
+                            </svg>
+                            <!-- /ACTION LIST ITEM ICON -->
                         </div>
-                        <!-- /DROPDOWN BOX HEADER ACTIONS -->
-                    </div>
-                    <!-- /DROPDOWN BOX HEADER -->
-
-                    <!-- DROPDOWN BOX LIST -->
-                    <div class="dropdown-box-list medium" data-simplebar>
-                        <!-- DROPDOWN BOX LIST ITEM -->
-                        <a class="dropdown-box-list-item" href="hub-profile-messages.html">
-                            <!-- USER STATUS -->
-                            <div class="user-status">
-                                <!-- USER STATUS AVATAR -->
-                                <div class="user-status-avatar">
-                                    <!-- USER AVATAR -->
-                                    <div class="user-avatar small no-outline">
-                                        <!-- USER AVATAR CONTENT -->
-                                        <div class="user-avatar-content">
-                                            <!-- HEXAGON -->
-                                            <div class="hexagon-image-30-32" data-src="img/avatar/04.jpg"></div>
-                                            <!-- /HEXAGON -->
-                                        </div>
-                                        <!-- /USER AVATAR CONTENT -->
-
-                                        <!-- USER AVATAR PROGRESS -->
-                                        <div class="user-avatar-progress">
-                                            <!-- HEXAGON -->
-                                            <div class="hexagon-progress-40-44"></div>
-                                            <!-- /HEXAGON -->
-                                        </div>
-                                        <!-- /USER AVATAR PROGRESS -->
-
-                                        <!-- USER AVATAR PROGRESS BORDER -->
-                                        <div class="user-avatar-progress-border">
-                                            <!-- HEXAGON -->
-                                            <div class="hexagon-border-40-44"></div>
-                                            <!-- /HEXAGON -->
-                                        </div>
-                                        <!-- /USER AVATAR PROGRESS BORDER -->
-
-                                        <!-- USER AVATAR BADGE -->
-                                        <div class="user-avatar-badge">
-                                            <!-- USER AVATAR BADGE BORDER -->
-                                            <div class="user-avatar-badge-border">
-                                                <!-- HEXAGON -->
-                                                <div class="hexagon-22-24"></div>
-                                                <!-- /HEXAGON -->
-                                            </div>
-                                            <!-- /USER AVATAR BADGE BORDER -->
-
-                                            <!-- USER AVATAR BADGE CONTENT -->
-                                            <div class="user-avatar-badge-content">
-                                                <!-- HEXAGON -->
-                                                <div class="hexagon-dark-16-18"></div>
-                                                <!-- /HEXAGON -->
-                                            </div>
-                                            <!-- /USER AVATAR BADGE CONTENT -->
-
-                                            <!-- USER AVATAR BADGE TEXT -->
-                                            <p class="user-avatar-badge-text">6</p>
-                                            <!-- /USER AVATAR BADGE TEXT -->
-                                        </div>
-                                        <!-- /USER AVATAR BADGE -->
-                                    </div>
-                                    <!-- /USER AVATAR -->
-                                </div>
-                                <!-- /USER STATUS AVATAR -->
-
-                                <!-- USER STATUS TITLE -->
-                                <p class="user-status-title"><span class="bold">Bearded Wonder</span></p>
-                                <!-- /USER STATUS TITLE -->
-
-                                <!-- USER STATUS TEXT -->
-                                <p class="user-status-text">Great! Then will meet with them at the party...</p>
-                                <!-- /USER STATUS TEXT -->
-
-                                <!-- USER STATUS TIMESTAMP -->
-                                <p class="user-status-timestamp floaty">29 mins ago</p>
-                                <!-- /USER STATUS TIMESTAMP -->
-                            </div>
-                            <!-- /USER STATUS -->
-                        </a>
-                        <!-- /DROPDOWN BOX LIST ITEM -->
-                    </div>
-                    <!-- /DROPDOWN BOX LIST -->
-
-                    <!-- DROPDOWN BOX BUTTON -->
-                    <a class="dropdown-box-button primary" href="hub-profile-messages.html">View all Messages</a>
-                    <!-- /DROPDOWN BOX BUTTON -->
-                </div>
-                <!-- /DROPDOWN BOX -->
-            </div>
-            <!-- /ACTION LIST ITEM WRAP -->
-
-            <!-- ACTION LIST ITEM WRAP -->
-            <div class="action-list-item-wrap">
-                <!-- ACTION LIST ITEM -->
-                <div class="action-list-item unread header-dropdown-trigger">
-                    <!-- ACTION LIST ITEM ICON -->
-                    <svg class="action-list-item-icon icon-notification">
-                        <use xlink:href="#svg-notification"></use>
-                    </svg>
-                    <!-- /ACTION LIST ITEM ICON -->
-                </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="action-list-item header-dropdown-trigger">
+                            <!-- ACTION LIST ITEM ICON -->
+                            <svg class="action-list-item-icon icon-notification">
+                                <use xlink:href="#svg-notification"></use>
+                            </svg>
+                            <!-- /ACTION LIST ITEM ICON -->
+                        </div>
+                    </c:otherwise>
+                </c:choose>
                 <!-- /ACTION LIST ITEM -->
 
                 <!-- DROPDOWN BOX -->
@@ -720,111 +470,78 @@
                         <!-- DROPDOWN BOX HEADER TITLE -->
                         <p class="dropdown-box-header-title">Notifications</p>
                         <!-- /DROPDOWN BOX HEADER TITLE -->
-
-                        <!-- DROPDOWN BOX HEADER ACTIONS -->
-                        <div class="dropdown-box-header-actions">
-                            <!-- DROPDOWN BOX HEADER ACTION -->
-                            <p class="dropdown-box-header-action">Mark all as Read</p>
-                            <!-- /DROPDOWN BOX HEADER ACTION -->
-
-                            <!-- DROPDOWN BOX HEADER ACTION -->
-                            <p class="dropdown-box-header-action">Settings</p>
-                            <!-- /DROPDOWN BOX HEADER ACTION -->
-                        </div>
-                        <!-- /DROPDOWN BOX HEADER ACTIONS -->
                     </div>
                     <!-- /DROPDOWN BOX HEADER -->
 
-                    <!-- DROPDOWN BOX LIST -->
-                    <div class="dropdown-box-list" data-simplebar>
-                        <!-- DROPDOWN BOX LIST ITEM -->
-                        <div class="dropdown-box-list-item unread">
-                            <!-- USER STATUS -->
-                            <div class="user-status notification">
-                                <!-- USER STATUS AVATAR -->
-                                <a class="user-status-avatar" href="profile-timeline.html">
-                                    <!-- USER AVATAR -->
-                                    <div class="user-avatar small no-outline">
-                                        <!-- USER AVATAR CONTENT -->
-                                        <div class="user-avatar-content">
-                                            <!-- HEXAGON -->
-                                            <div class="hexagon-image-30-32" data-src="img/avatar/03.jpg"></div>
-                                            <!-- /HEXAGON -->
-                                        </div>
-                                        <!-- /USER AVATAR CONTENT -->
-
-                                        <!-- USER AVATAR PROGRESS -->
-                                        <div class="user-avatar-progress">
-                                            <!-- HEXAGON -->
-                                            <div class="hexagon-progress-40-44"></div>
-                                            <!-- /HEXAGON -->
-                                        </div>
-                                        <!-- /USER AVATAR PROGRESS -->
-
-                                        <!-- USER AVATAR PROGRESS BORDER -->
-                                        <div class="user-avatar-progress-border">
-                                            <!-- HEXAGON -->
-                                            <div class="hexagon-border-40-44"></div>
-                                            <!-- /HEXAGON -->
-                                        </div>
-                                        <!-- /USER AVATAR PROGRESS BORDER -->
-
-                                        <!-- USER AVATAR BADGE -->
-                                        <div class="user-avatar-badge">
-                                            <!-- USER AVATAR BADGE BORDER -->
-                                            <div class="user-avatar-badge-border">
+                        <!-- DROPDOWN BOX LIST -->
+                    <c:forEach var="notif" items="${unread}">
+                        <div class="dropdown-box-list" data-simplebar>
+                            <!-- DROPDOWN BOX LIST ITEM -->
+                            <div class="dropdown-box-list-item unread">
+                                <!-- USER STATUS -->
+                                <div class="user-status notification">
+                                    <!-- USER STATUS AVATAR -->
+                                    <a class="user-status-avatar" href="profile-timeline.html">
+                                        <!-- USER AVATAR -->
+                                        <div class="user-avatar small no-outline">
+                                            <!-- USER AVATAR CONTENT -->
+                                            <div class="user-avatar-content">
                                                 <!-- HEXAGON -->
-                                                <div class="hexagon-22-24"></div>
+                                                <div class="hexagon-image-30-32" data-src="img/avatar/${notif.sender_id}.jpg"></div>
                                                 <!-- /HEXAGON -->
                                             </div>
-                                            <!-- /USER AVATAR BADGE BORDER -->
+                                            <!-- /USER AVATAR CONTENT -->
 
-                                            <!-- USER AVATAR BADGE CONTENT -->
-                                            <div class="user-avatar-badge-content">
+                                            <!-- USER AVATAR PROGRESS -->
+                                            <div class="user-avatar-progress">
                                                 <!-- HEXAGON -->
-                                                <div class="hexagon-dark-16-18"></div>
+                                                <div class="hexagon-progress-40-44"></div>
                                                 <!-- /HEXAGON -->
                                             </div>
-                                            <!-- /USER AVATAR BADGE CONTENT -->
+                                            <!-- /USER AVATAR PROGRESS -->
 
-                                            <!-- USER AVATAR BADGE TEXT -->
-                                            <p class="user-avatar-badge-text">16</p>
-                                            <!-- /USER AVATAR BADGE TEXT -->
+                                            <!-- USER AVATAR PROGRESS BORDER -->
+                                            <div class="user-avatar-progress-border">
+                                                <!-- HEXAGON -->
+                                                <div class="hexagon-border-40-44"></div>
+                                                <!-- /HEXAGON -->
+                                            </div>
+                                            <!-- /USER AVATAR PROGRESS BORDER -->
                                         </div>
-                                        <!-- /USER AVATAR BADGE -->
+                                        <!-- /USER AVATAR -->
+                                    </a>
+                                    <!-- /USER STATUS AVATAR -->
+
+                                    <!-- USER STATUS TITLE  <a class="highlighted" href="profile-timeline.html">status update</a>-->
+                                    <a class="bold" href="notifications"><p class="user-status-title">${notif.sender_id} ${notif.notif_type}</p></a>
+                                    <!-- /USER STATUS TITLE -->
+
+                                    <!-- USER STATUS TIMESTAMP -->
+                                    <p class="user-status-timestamp">${notif.time_sent}</p>
+                                    <!-- /USER STATUS TIMESTAMP -->
+
+                                    <!-- USER STATUS ICON -->
+                                    <div class="user-status-icon">
+                                        <!-- ICON COMMENT -->
+                                        <svg class="icon-comment">
+                                            <use xlink:href="#svg-comment"></use>
+                                        </svg>
+                                        <!-- /ICON COMMENT -->
                                     </div>
-                                    <!-- /USER AVATAR -->
-                                </a>
-                                <!-- /USER STATUS AVATAR -->
-
-                                <!-- USER STATUS TITLE -->
-                                <p class="user-status-title"><a class="bold" href="profile-timeline.html">Nick Grissom</a> posted a comment on your <a class="highlighted" href="profile-timeline.html">status update</a></p>
-                                <!-- /USER STATUS TITLE -->
-
-                                <!-- USER STATUS TIMESTAMP -->
-                                <p class="user-status-timestamp">2 minutes ago</p>
-                                <!-- /USER STATUS TIMESTAMP -->
-
-                                <!-- USER STATUS ICON -->
-                                <div class="user-status-icon">
-                                    <!-- ICON COMMENT -->
-                                    <svg class="icon-comment">
-                                        <use xlink:href="#svg-comment"></use>
-                                    </svg>
-                                    <!-- /ICON COMMENT -->
+                                    <!-- /USER STATUS ICON -->
                                 </div>
-                                <!-- /USER STATUS ICON -->
+                                <!-- /USER STATUS -->
                             </div>
-                            <!-- /USER STATUS -->
+                            <!-- /DROPDOWN BOX LIST ITEM -->
                         </div>
-                        <!-- /DROPDOWN BOX LIST ITEM -->
-                    </div>
-                    <!-- /DROPDOWN BOX LIST -->
+                    </c:forEach>
+                        <!-- /DROPDOWN BOX LIST -->
 
                     <!-- DROPDOWN BOX BUTTON -->
-                    <a class="dropdown-box-button secondary" href="hub-profile-notifications.html">View all Notifications</a>
+                    <a class="dropdown-box-button secondary" href="notifications">View all Notifications</a>
                     <!-- /DROPDOWN BOX BUTTON -->
                 </div>
+
                 <!-- /DROPDOWN BOX -->
             </div>
             <!-- /ACTION LIST ITEM WRAP -->

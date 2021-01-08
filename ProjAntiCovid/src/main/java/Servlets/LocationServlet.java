@@ -3,6 +3,7 @@ package Servlets;
 import BDD.ConnexionBDD;
 import Beans.Event;
 import Beans.Location;
+import Beans.Notif;
 import Beans.User;
 
 import javax.servlet.ServletException;
@@ -29,33 +30,30 @@ public class LocationServlet extends HttpServlet {
         String location_lat = request.getParameter("location_lat");
         String location_long = request.getParameter("location_long");
 
-        System.out.println(location_name+" "+location_address+" "+location_long+" "+location_lat);
+        System.out.println(location_name + " " + location_address + " " + location_long + " " + location_lat);
 
         HttpSession session = request.getSession();
         ConnexionBDD sc = new ConnexionBDD();
 
-        if(!location_name.equals("") && !location_address.equals("")) {
+        if (!location_name.equals("") && !location_address.equals("")) {
             boolean succes = false;
             try {
-                if(!sc.locationExists(location_name, location_address)){
-                    if(location_lat.equals("") && location_long.equals("")){
+                if (!sc.locationExists(location_name, location_address)) {
+                    if (location_lat.equals("") && location_long.equals("")) {
                         succes = sc.createLocation(location_name, location_address);
-                    }
-                    else {
+                    } else {
                         succes = sc.createLocation(location_name, location_address, Float.parseFloat(location_lat), Float.parseFloat(location_long));
                     }
 
                     System.out.println("Création du lieu");
-                    if(succes){
+                    if (succes) {
                         System.out.println("Création réussie");
-                    }
-                    else{
-                        session.setAttribute("msg_err_location","Les données rentrées sont incorrectes !");
+                    } else {
+                        session.setAttribute("msg_err_location", "Les données rentrées sont incorrectes !");
                         System.out.println("Création échouée");
                     }
-                }
-                else {
-                    session.setAttribute("msg_err_location","Lieu existant");
+                } else {
+                    session.setAttribute("msg_err_location", "Lieu existant");
 
                     System.out.println("Lieu existant");
                 }
@@ -63,10 +61,9 @@ public class LocationServlet extends HttpServlet {
                 throwables.printStackTrace();
             }
 
-        }
-        else {
+        } else {
 
-            session.setAttribute("msg_err_location","Les données rentrées sont incorrectes !");
+            session.setAttribute("msg_err_location", "Les données rentrées sont incorrectes !");
         }
 
         response.sendRedirect(request.getHeader("referer"));
@@ -78,14 +75,22 @@ public class LocationServlet extends HttpServlet {
         User current_user = (User) session.getAttribute("current_user");
         session.getAttribute("msg_err_location");
 
-        if(current_user == null) {
+        if (current_user == null) {
 
-            request.getRequestDispatcher( "/index.jsp" ).forward( request, response );
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
             session.setAttribute("msg_err_login", "Veuillez vous connecter");
-        }
-        else{
-            if(current_user.getRole().trim().equals("USER") || current_user.getRole().trim().equals("ADMIN")) {
+        } else {
+            if (current_user.getRole().trim().equals("USER") || current_user.getRole().trim().equals("ADMIN")) {
                 ConnexionBDD sc = new ConnexionBDD();
+                try {
+                    ArrayList<Notif> notifs = sc.getUserNotifications(current_user.getId());
+                    ArrayList<Notif> unreadNotifs = sc.getUnreadNotifications(current_user.getId());
+                    session.setAttribute("notifs", notifs);
+                    session.setAttribute("unread", unreadNotifs);
+                    System.out.println("fait");
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
                 ArrayList<Location> locations = sc.getAllLocations();
                 request.setAttribute("locations", locations);
                 request.getRequestDispatcher("/createLieu.jsp").forward(request, response);

@@ -1,6 +1,7 @@
 package Servlets;
 
 import BDD.ConnexionBDD;
+import Beans.Notif;
 import Beans.User;
 
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class PasswordServlet extends HttpServlet {
@@ -85,6 +87,16 @@ public class PasswordServlet extends HttpServlet {
             request.getRequestDispatcher( "/index.jsp" ).forward( request, response );
         }
         else{
+            ConnexionBDD sc = new ConnexionBDD();
+            try {
+                ArrayList<Notif> notifs = sc.getUserNotifications(current_user.getId());
+                ArrayList<Notif> unreadNotifs = sc.getUnreadNotifications(current_user.getId());
+                session.setAttribute("notifs", notifs);
+                session.setAttribute("unread", unreadNotifs);
+                System.out.println("fait");
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
             request.getRequestDispatcher( "/hub-account-password.jsp" ).forward( request, response );
         }
     }

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import Beans.Event;
 import Beans.Location;
+import Beans.Notif;
 import Beans.User;
 
 public class ConnexionBDD {
@@ -133,6 +134,107 @@ public class ConnexionBDD {
         return user;
     }
 
+    public ArrayList<Notif> getUserNotifications(int id) throws SQLException {
+
+        ArrayList<Notif> userNotifs = new ArrayList<>();
+
+        String rqString = "Select * from Notifs where receiver_id=?;";
+        PreparedStatement preparedStatement = this.connect().prepareStatement(rqString);
+        preparedStatement.setInt(1, id);
+        ResultSet res = preparedStatement.executeQuery();
+        int i = 0;
+        try {
+            while(res.next()) {
+                if(i==0) {
+                    Notif n = new Notif();
+                    n.setId(res.getInt("id"));
+                    n.setReceiver_id(res.getInt("receiver_id"));
+                    n.setSender_id(res.getInt("sender_id"));
+                    n.setNotif_type(res.getString("notif_type"));
+                    n.setTime_sent(res.getTime("time_sent"));
+                    n.setIs_read(res.getBoolean("is_read"));
+
+                    userNotifs.add(n);
+                }
+                else {
+                    i++;
+                    arret("Plus d'un utilisateur ayant le meme login ???");
+                }
+
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return userNotifs;
+    }
+
+    public ArrayList<Notif> getUnreadNotifications(int id) throws SQLException {
+
+        ArrayList<Notif> userNotifs = new ArrayList<>();
+
+        String rqString = "Select * from Notifs where receiver_id=? AND is_read=0;";
+        PreparedStatement preparedStatement = this.connect().prepareStatement(rqString);
+        preparedStatement.setInt(1, id);
+        ResultSet res = preparedStatement.executeQuery();
+        int i = 0;
+        try {
+            while(res.next()) {
+                if(i==0) {
+                    Notif n = new Notif();
+                    n.setId(res.getInt("id"));
+                    n.setReceiver_id(res.getInt("receiver_id"));
+                    n.setSender_id(res.getInt("sender_id"));
+                    n.setNotif_type(res.getString("notif_type"));
+                    n.setTime_sent(res.getTime("time_sent"));
+                    n.setIs_read(res.getBoolean("is_read"));
+
+                    userNotifs.add(n);
+                }
+                else {
+                    i++;
+                    arret("Plus d'un utilisateur ayant le meme login ???");
+                }
+
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return userNotifs;
+    }
+
+    public ArrayList<User> getAllUsers() {
+
+        ArrayList<User> users = new ArrayList<User>();
+
+        String rqString = "Select * from User ;";
+        ResultSet res = doRequest(rqString);
+        try {
+            while(res.next()) {
+                User u = new User();
+                u.setId(res.getInt("id"));
+                u.setPseudo(res.getString("pseudo"));
+                u.setLogin(res.getString("login"));
+                u.setPassword(res.getString("password"));
+                u.setNom(res.getString("nom"));
+                u.setPrenom(res.getString("prenom"));
+                u.setBirthdate(res.getString("birthdate"));
+                u.setRole(res.getString("role"));
+                u.setImage(res.getString("image"));
+                u.setStatut(res.getInt("statut"));
+                users.add(u);
+            }
+        }
+        catch (SQLException | ParseException e) {
+            e.printStackTrace();
+        }
+
+        return users;
+    }
+
     public ArrayList<Event> getAllEvent() {
 
         ArrayList<Event> events = new ArrayList<Event>();
@@ -232,6 +334,27 @@ public class ConnexionBDD {
             preparedStatement.setString(3, start);
             preparedStatement.setString(4, end);
             preparedStatement.setString(5, description);
+
+            if(preparedStatement.executeUpdate()>0){
+                return true;
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    public boolean createNotif(int receiver_id, int sender_id, String notif_type) {
+        Connection con = connect();
+
+        try {
+            String rqString = "INSERT INTO Notifs (receiver_id, sender_id, notif_type) VALUES (?, ?, ?)";
+            PreparedStatement preparedStatement = con.prepareStatement(rqString);
+            preparedStatement.setInt(1, receiver_id);
+            preparedStatement.setInt(2, sender_id);
+            preparedStatement.setString(3, notif_type);
 
             if(preparedStatement.executeUpdate()>0){
                 return true;

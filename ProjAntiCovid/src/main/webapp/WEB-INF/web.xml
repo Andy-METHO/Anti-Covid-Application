@@ -121,4 +121,14 @@
         <servlet-name>LocationServlet</servlet-name>
         <url-pattern>/location</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>NotificationServlet</servlet-name>
+        <servlet-class>Servlets.NotificationServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>NotificationServlet</servlet-name>
+        <url-pattern>/notifications</url-pattern>
+    </servlet-mapping>
 </web-app>

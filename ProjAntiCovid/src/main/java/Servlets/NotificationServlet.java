@@ -15,14 +15,12 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class UserServlet extends HttpServlet {
+public class NotificationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-
         HttpSession session = request.getSession();
 
         User current_user = (User) session.getAttribute("current_user");
@@ -37,25 +35,21 @@ public class UserServlet extends HttpServlet {
             if (current_user.getRole().trim().equals("USER") || current_user.getRole().trim().equals("ADMIN")) {
                 ConnexionBDD sc = new ConnexionBDD();
 
+                String sql_readall = "UPDATE `Notifs` SET `is_read` = '1' WHERE `Notifs`.`receiver_id` ="+current_user.getId()+";";
+                int read = sc.doUpdate(sql_readall);
+                System.out.println(read);
+
                 try {
                     ArrayList<Notif> notifs = sc.getUserNotifications(current_user.getId());
-                    ArrayList<Notif> unreadNotifs = sc.getUnreadNotifications(current_user.getId());
                     session.setAttribute("notifs", notifs);
-                    session.setAttribute("unread", unreadNotifs);
+                    session.setAttribute("unread", "");
                     System.out.println("fait");
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 }
 
-                ArrayList<Location> locations = sc.getAllLocations();
-                ArrayList<Event> events = sc.getAllEvent();
-
-                request.setAttribute("locations", locations);
-                request.setAttribute("events", events);
-
-                request.getRequestDispatcher("/events.jsp").forward(request, response);
+                request.getRequestDispatcher("/hub-profile-notifications.jsp").forward(request, response);
             }
         }
-
     }
 }

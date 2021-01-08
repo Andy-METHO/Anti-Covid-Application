@@ -1,4 +1,3 @@
-<%@ page import="Beans.User" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -133,6 +132,7 @@
     
         <!-- CALENDAR EVENT PREVIEW LIST -->
         <c:forEach items="${requestScope.events}" var="event">
+
           <div class="calendar-event-preview-list">
             <!-- CALENDAR EVENT PREVIEW -->
             <div class="calendar-event-preview secondary">
@@ -147,7 +147,7 @@
               <!-- CALENDAR EVENT PREVIEW INFO -->
               <div class="calendar-event-preview-info">
                 <!-- CALENDAR EVENT PREVIEW TITLE -->
-                <p class="calendar-event-preview-title popup-event-information-trigger">${event.date} - ${event.lieu}</p>
+                <p class="calendar-event-preview-title popup-event-information-trigger">${event.lieu} ---- ${event.date}</p>
                 <!-- /CALENDAR EVENT PREVIEW TITLE -->
 
                 <!-- CALENDAR EVENT PREVIEW TEXT -->

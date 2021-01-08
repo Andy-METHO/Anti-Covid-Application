@@ -55,7 +55,16 @@ public class PositifServlet extends HttpServlet {
 	    	friendslist = new Friends(friends);
 	    			    		    	
 			session.setAttribute("friendslist", friendslist);
-			
+
+			try {
+				ArrayList<Notif> notifs = sc.getUserNotifications(current_user.getId());
+				ArrayList<Notif> unreadNotifs = sc.getUnreadNotifications(current_user.getId());
+				session.setAttribute("notifs", notifs);
+				session.setAttribute("unread", unreadNotifs);
+				System.out.println("fait");
+			} catch (SQLException throwables) {
+				throwables.printStackTrace();
+			}
 	        
 	        request.getRequestDispatcher( "/positif.jsp" ).forward( request, response );
         }

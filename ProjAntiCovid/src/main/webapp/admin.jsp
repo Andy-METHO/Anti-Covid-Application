@@ -1,7 +1,3 @@
-<%@ page import="Beans.*" %>
-<%@ page import="Servlets.FriendsServlet" %>
-<jsp:useBean id="admin" class="Beans.Admin" scope="session"/>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,21 +50,21 @@
                         <th><p class="calendar-events-preview-title">Supprimer</p></th>
                         <th><p class="calendar-events-preview-title">Modifier Statut</p></th>
                     </tr>
-                    <c:forEach var="i" begin="0" end="${admin.getUsersSize()-1}" step="1">
+                    <c:forEach var="user" items="${requestScope.users}">
                         <tr>
-                            <td><p class="calendar-events-preview-title">${admin.getUsers().get(i).getPseudo()}</p></td>
-                            <td><p class="calendar-events-preview-title">${admin.getUsers().get(i).getNom()}</p></td>
-                            <td><p class="calendar-events-preview-title">${admin.getUsers().get(i).getPrenom()}</p></td>
+                            <td><p class="calendar-events-preview-title">${user.pseudo}</p></td>
+                            <td><p class="calendar-events-preview-title">${user.nom}</p></td>
+                            <td><p class="calendar-events-preview-title">${user.prenom}</p></td>
                             <td>
                                 <c:choose>
-                                    <c:when test="${admin.getUsers().get(i).getStatut()}"><p
+                                    <c:when test="${user.statut}"><p
                                             class="calendar-events-preview-title">Infected</p></c:when>
                                     <c:otherwise><p class="calendar-events-preview-title">Not Infected</p></c:otherwise>
                                 </c:choose>
                             </td>
                             <td>
                                 <form action="admin" method="POST">
-                                    <button name="delete_user" value="${admin.getUsers().get(i).getId()}">Retirer
+                                    <button name="delete_user" value="${user.id}">Retirer
                                     </button>
                                 </form>
                             </td>
@@ -76,16 +72,16 @@
 
                             <td>
                                 <c:choose>
-                                    <c:when test="${admin.getUsers().get(i).getStatut()}">
+                                    <c:when test="${user.statut}">
                                         <form action="admin" method="POST">
-                                            <button name="positivite" value="${admin.getUsers().get(i).getId()}">
+                                            <button name="positivite" value="${user.id}">
                                                 Guerir
                                             </button>
                                         </form>
                                     </c:when>
                                     <c:otherwise>
                                         <form action="admin" method="POST">
-                                            <button name="positivite" value="${admin.getUsers().get(i).getId()}">
+                                            <button name="positivite" value="${user.id}">
                                                 Covided
                                             </button>
                                         </form>
@@ -150,20 +146,20 @@
                         <th><p class="calendar-events-preview-title">Event</p></th>
                         <th><p class="calendar-events-preview-title">Supprimer</p></th>
                     </tr>
-                    <c:forEach var="i" begin="0" end="${admin.getEventsSize()-1}" step="1">
+                    <c:forEach var="event" items="${requestScope.events}">
                         <tr>
-                            <td><p class="calendar-events-preview-title">${admin.getEvents().get(i).getDate()}</p></td>
-                            <td><p class="calendar-events-preview-title">${admin.getEvents().get(i).getStart_hour()}</p>
+                            <td><p class="calendar-events-preview-title">${event.date}</p></td>
+                            <td><p class="calendar-events-preview-title">${event.start_hour}</p>
                             </td>
-                            <td><p class="calendar-events-preview-title">${admin.getEvents().get(i).getEnd_hour()}</p>
+                            <td><p class="calendar-events-preview-title">${event.end_hour}</p>
                             </td>
-                            <td><p class="calendar-events-preview-title">${admin.getEvents().get(i).getLieu()}</p></td>
+                            <td><p class="calendar-events-preview-title">${event.lieu}</p></td>
                             <td>
-                                <p class="calendar-events-preview-title">${admin.getEvents().get(i).getDescription()}</p>
+                                <p class="calendar-events-preview-title">${event.description}</p>
                             </td>
                             <td>
                                 <form action="admin" method="POST">
-                                    <button name="delete_event" value="${admin.getEvents().get(i).getId()}">Retirer
+                                    <button name="delete_event" value="${event.id}">Retirer
                                     </button>
                                 </form>
                             </td>
@@ -203,7 +199,7 @@
         <div class="calendar-events-preview-title">
             <div class="calendar-events-preview">
                 <table>
-                    <tr>
+                    <tr>d
                         <th><p class="calendar-events-preview-title">Nom</th>
                         <th><p class="calendar-events-preview-title">Adresse</p></th>
                         <th><p class="calendar-events-preview-title">Longitude</p></th>
