@@ -23,7 +23,7 @@
             <!-- /LOGO -->
 
             <!-- HEADER BRAND TEXT -->
-            <h1 class="header-brand-text">Vikinger</h1>
+            <h1 class="header-brand-text">AntiCovid</h1>
             <!-- /HEADER BRAND TEXT -->
         </div>
         <!-- /HEADER BRAND -->
@@ -127,288 +127,6 @@
             <!-- /INTERACTIVE INPUT ACTION -->
         </div>
         <!-- /INTERACTIVE INPUT -->
-
-        <!-- DROPDOWN BOX -->
-        <div class="dropdown-box padding-bottom-small header-search-dropdown">
-            <!-- DROPDOWN BOX CATEGORY -->
-            <div class="dropdown-box-category">
-                <!-- DROPDOWN BOX CATEGORY TITLE -->
-                <p class="dropdown-box-category-title">Members</p>
-                <!-- /DROPDOWN BOX CATEGORY TITLE -->
-            </div>
-            <!-- /DROPDOWN BOX CATEGORY -->
-
-            <!-- DROPDOWN BOX LIST -->
-            <div class="dropdown-box-list small no-scroll">
-                <!-- DROPDOWN BOX LIST ITEM -->
-                <a class="dropdown-box-list-item" href="profile-timeline.html">
-                    <!-- USER STATUS -->
-                    <div class="user-status notification">
-                        <!-- USER STATUS AVATAR -->
-                        <div class="user-status-avatar">
-                            <!-- USER AVATAR -->
-                            <div class="user-avatar small no-outline">
-                                <!-- USER AVATAR CONTENT -->
-                                <div class="user-avatar-content">
-                                    <!-- HEXAGON -->
-                                    <div class="hexagon-image-30-32" data-src="img/avatar/05.jpg"></div>
-                                    <!-- /HEXAGON -->
-                                </div>
-                                <!-- /USER AVATAR CONTENT -->
-
-                                <!-- USER AVATAR PROGRESS -->
-                                <div class="user-avatar-progress">
-                                    <!-- HEXAGON -->
-                                    <div class="hexagon-progress-40-44"></div>
-                                    <!-- /HEXAGON -->
-                                </div>
-                                <!-- /USER AVATAR PROGRESS -->
-
-                                <!-- USER AVATAR PROGRESS BORDER -->
-                                <div class="user-avatar-progress-border">
-                                    <!-- HEXAGON -->
-                                    <div class="hexagon-border-40-44"></div>
-                                    <!-- /HEXAGON -->
-                                </div>
-                                <!-- /USER AVATAR PROGRESS BORDER -->
-
-                                <!-- USER AVATAR BADGE -->
-                                <div class="user-avatar-badge">
-                                    <!-- USER AVATAR BADGE BORDER -->
-                                    <div class="user-avatar-badge-border">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-22-24"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR BADGE BORDER -->
-
-                                    <!-- USER AVATAR BADGE CONTENT -->
-                                    <div class="user-avatar-badge-content">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-dark-16-18"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR BADGE CONTENT -->
-
-                                    <!-- USER AVATAR BADGE TEXT -->
-                                    <p class="user-avatar-badge-text">12</p>
-                                    <!-- /USER AVATAR BADGE TEXT -->
-                                </div>
-                                <!-- /USER AVATAR BADGE -->
-                            </div>
-                            <!-- /USER AVATAR -->
-                        </div>
-                        <!-- /USER STATUS AVATAR -->
-
-                        <!-- USER STATUS TITLE -->
-                        <p class="user-status-title"><span class="bold">Neko Bebop</span></p>
-                        <!-- /USER STATUS TITLE -->
-
-                        <!-- USER STATUS TEXT -->
-                        <p class="user-status-text">1 friends in common</p>
-                        <!-- /USER STATUS TEXT -->
-
-                        <!-- USER STATUS ICON -->
-                        <div class="user-status-icon">
-                            <!-- ICON FRIEND -->
-                            <svg class="icon-friend">
-                                <use xlink:href="#svg-friend"></use>
-                            </svg>
-                            <!-- /ICON FRIEND -->
-                        </div>
-                        <!-- /USER STATUS ICON -->
-                    </div>
-                    <!-- /USER STATUS -->
-                </a>
-                <!-- /DROPDOWN BOX LIST ITEM -->
-
-                <!-- DROPDOWN BOX LIST ITEM -->
-                <a class="dropdown-box-list-item" href="profile-timeline.html">
-                    <!-- USER STATUS -->
-                    <div class="user-status notification">
-                        <!-- USER STATUS AVATAR -->
-                        <div class="user-status-avatar">
-                            <!-- USER AVATAR -->
-                            <div class="user-avatar small no-outline">
-                                <!-- USER AVATAR CONTENT -->
-                                <div class="user-avatar-content">
-                                    <!-- HEXAGON -->
-                                    <div class="hexagon-image-30-32" data-src="img/avatar/15.jpg"></div>
-                                    <!-- /HEXAGON -->
-                                </div>
-                                <!-- /USER AVATAR CONTENT -->
-
-                                <!-- USER AVATAR PROGRESS -->
-                                <div class="user-avatar-progress">
-                                    <!-- HEXAGON -->
-                                    <div class="hexagon-progress-40-44"></div>
-                                    <!-- /HEXAGON -->
-                                </div>
-                                <!-- /USER AVATAR PROGRESS -->
-
-                                <!-- USER AVATAR PROGRESS BORDER -->
-                                <div class="user-avatar-progress-border">
-                                    <!-- HEXAGON -->
-                                    <div class="hexagon-border-40-44"></div>
-                                    <!-- /HEXAGON -->
-                                </div>
-                                <!-- /USER AVATAR PROGRESS BORDER -->
-
-                                <!-- USER AVATAR BADGE -->
-                                <div class="user-avatar-badge">
-                                    <!-- USER AVATAR BADGE BORDER -->
-                                    <div class="user-avatar-badge-border">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-22-24"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR BADGE BORDER -->
-
-                                    <!-- USER AVATAR BADGE CONTENT -->
-                                    <div class="user-avatar-badge-content">
-                                        <!-- HEXAGON -->
-                                        <div class="hexagon-dark-16-18"></div>
-                                        <!-- /HEXAGON -->
-                                    </div>
-                                    <!-- /USER AVATAR BADGE CONTENT -->
-
-                                    <!-- USER AVATAR BADGE TEXT -->
-                                    <p class="user-avatar-badge-text">7</p>
-                                    <!-- /USER AVATAR BADGE TEXT -->
-                                </div>
-                                <!-- /USER AVATAR BADGE -->
-                            </div>
-                            <!-- /USER AVATAR -->
-                        </div>
-                        <!-- /USER STATUS AVATAR -->
-
-                        <!-- USER STATUS TITLE -->
-                        <p class="user-status-title"><span class="bold">Tim Rogers</span></p>
-                        <!-- /USER STATUS TITLE -->
-
-                        <!-- USER STATUS TEXT -->
-                        <p class="user-status-text">4 friends in common</p>
-                        <!-- /USER STATUS TEXT -->
-
-                        <!-- USER STATUS ICON -->
-                        <div class="user-status-icon">
-                            <!-- ICON FRIEND -->
-                            <svg class="icon-friend">
-                                <use xlink:href="#svg-friend"></use>
-                            </svg>
-                            <!-- /ICON FRIEND -->
-                        </div>
-                        <!-- /USER STATUS ICON -->
-                    </div>
-                    <!-- /USER STATUS -->
-                </a>
-                <!-- /DROPDOWN BOX LIST ITEM -->
-            </div>
-            <!-- /DROPDOWN BOX LIST -->
-
-            <!-- DROPDOWN BOX CATEGORY -->
-            <div class="dropdown-box-category">
-                <!-- DROPDOWN BOX CATEGORY TITLE -->
-                <p class="dropdown-box-category-title">Groups</p>
-                <!-- /DROPDOWN BOX CATEGORY TITLE -->
-            </div>
-            <!-- /DROPDOWN BOX CATEGORY -->
-
-            <!-- DROPDOWN BOX LIST -->
-            <div class="dropdown-box-list small no-scroll">
-                <!-- DROPDOWN BOX LIST ITEM -->
-                <a class="dropdown-box-list-item" href="group-timeline.html">
-                    <!-- USER STATUS -->
-                    <div class="user-status notification">
-                        <!-- USER STATUS AVATAR -->
-                        <div class="user-status-avatar">
-                            <!-- USER AVATAR -->
-                            <div class="user-avatar small no-border">
-                                <!-- USER AVATAR CONTENT -->
-                                <div class="user-avatar-content">
-                                    <!-- HEXAGON -->
-                                    <div class="hexagon-image-40-44" data-src="img/avatar/24.jpg"></div>
-                                    <!-- /HEXAGON -->
-                                </div>
-                                <!-- /USER AVATAR CONTENT -->
-                            </div>
-                            <!-- /USER AVATAR -->
-                        </div>
-                        <!-- /USER STATUS AVATAR -->
-
-                        <!-- USER STATUS TITLE -->
-                        <p class="user-status-title"><span class="bold">Cosplayers of the World</span></p>
-                        <!-- /USER STATUS TITLE -->
-
-                        <!-- USER STATUS TEXT -->
-                        <p class="user-status-text">139 members</p>
-                        <!-- /USER STATUS TEXT -->
-
-                        <!-- USER STATUS ICON -->
-                        <div class="user-status-icon">
-                            <!-- ICON GROUP -->
-                            <svg class="icon-group">
-                                <use xlink:href="#svg-group"></use>
-                            </svg>
-                            <!-- /ICON GROUP -->
-                        </div>
-                        <!-- /USER STATUS ICON -->
-                    </div>
-                    <!-- /USER STATUS -->
-                </a>
-                <!-- /DROPDOWN BOX LIST ITEM -->
-            </div>
-            <!-- /DROPDOWN BOX LIST -->
-
-            <!-- DROPDOWN BOX CATEGORY -->
-            <div class="dropdown-box-category">
-                <!-- DROPDOWN BOX CATEGORY TITLE -->
-                <p class="dropdown-box-category-title">Marketplace</p>
-                <!-- /DROPDOWN BOX CATEGORY TITLE -->
-            </div>
-            <!-- /DROPDOWN BOX CATEGORY -->
-
-            <!-- DROPDOWN BOX LIST -->
-            <div class="dropdown-box-list small no-scroll">
-                <!-- DROPDOWN BOX LIST ITEM -->
-                <a class="dropdown-box-list-item" href="marketplace-product.html">
-                    <!-- USER STATUS -->
-                    <div class="user-status no-padding-top">
-                        <!-- USER STATUS AVATAR -->
-                        <div class="user-status-avatar">
-                            <!-- PICTURE -->
-                            <figure class="picture small round liquid">
-                                <img src="img/marketplace/items/07.jpg" alt="item-07">
-                            </figure>
-                            <!-- /PICTURE -->
-                        </div>
-                        <!-- /USER STATUS AVATAR -->
-
-                        <!-- USER STATUS TITLE -->
-                        <p class="user-status-title"><span class="bold">Mercenaries White Frame</span></p>
-                        <!-- /USER STATUS TITLE -->
-
-                        <!-- USER STATUS TEXT -->
-                        <p class="user-status-text">By Neko Bebop</p>
-                        <!-- /USER STATUS TEXT -->
-
-                        <!-- USER STATUS ICON -->
-                        <div class="user-status-icon">
-                            <!-- ICON MARKETPLACE -->
-                            <svg class="icon-marketplace">
-                                <use xlink:href="#svg-marketplace"></use>
-                            </svg>
-                            <!-- /ICON MARKETPLACE -->
-                        </div>
-                        <!-- /USER STATUS ICON -->
-                    </div>
-                    <!-- /USER STATUS -->
-                </a>
-                <!-- /DROPDOWN BOX LIST ITEM -->
-            </div>
-            <!-- /DROPDOWN BOX LIST -->
-        </div>
-        <!-- /DROPDOWN BOX -->
     </div>
     <!-- /HEADER ACTIONS -->
 
@@ -451,7 +169,7 @@
                 <!-- ACTION LIST ITEM -->
                 <c:choose>
                     <c:when test="${not empty unread && unread.size() !=0}">
-                        <div class="action-list-item unread header-dropdown-trigger">
+                        <div id="refresh" class="action-list-item unread header-dropdown-trigger">
                             <!-- ACTION LIST ITEM ICON -->
                             <svg class="action-list-item-icon icon-notification">
                                 <use xlink:href="#svg-notification"></use>
@@ -460,7 +178,7 @@
                         </div>
                     </c:when>
                     <c:otherwise>
-                        <div class="action-list-item header-dropdown-trigger">
+                        <div id="refresh" class="action-list-item header-dropdown-trigger">
                             <!-- ACTION LIST ITEM ICON -->
                             <svg class="action-list-item-icon icon-notification">
                                 <use xlink:href="#svg-notification"></use>
@@ -482,7 +200,8 @@
                         <!-- DROPDOWN BOX HEADER ACTION -->
                         <div class="dropdown-box-header-actions">
                             <form action="notifications" method="post">
-                                <button style="background-color: transparent"><p class="dropdown-box-header-action">Mark all as Read</p></button>
+                                <button style="background-color: transparent"><p class="dropdown-box-header-action">Mark
+                                    all as Read</p></button>
                             </form>
                         </div>
                         <!-- DROPDOWN BOX HEADER ACTION -->
@@ -503,7 +222,8 @@
                                             <!-- USER AVATAR CONTENT -->
                                             <div class="user-avatar-content">
                                                 <!-- HEXAGON -->
-                                                <div class="hexagon-image-30-32" data-src="img/avatar/${notif.sender_id}.jpg"></div>
+                                                <div class="hexagon-image-30-32"
+                                                     data-src="img/avatar/${notif.sender.image}"></div>
                                                 <!-- /HEXAGON -->
                                             </div>
                                             <!-- /USER AVATAR CONTENT -->
@@ -529,7 +249,8 @@
                                     <!-- /USER STATUS AVATAR -->
 
                                     <!-- USER STATUS TITLE  <a class="highlighted" href="profile-timeline.html">status update</a>-->
-                                    <a class="bold" href="notifications"><p class="user-status-title">${notif.sender_id} ${notif.notif_type}</p></a>
+                                    <a class="bold" href="notifications"><p
+                                            class="user-status-title">${notif.sender.pseudo} ${notif.notif_type}</p></a>
                                     <!-- /USER STATUS TITLE -->
 
                                     <!-- USER STATUS TIMESTAMP -->
@@ -590,10 +311,12 @@
                                 <div class="user-avatar-content">
                                     <!-- HEXAGON -->
                                     <c:if test="${not empty current_user}">
-                                        <div class="hexagon-image-30-32" data-src="${pageContext.request.contextPath}/resources/img/avatar/${current_user.image}"></div>
+                                        <div class="hexagon-image-30-32"
+                                             data-src="${pageContext.request.contextPath}/resources/img/avatar/${current_user.image}"></div>
                                     </c:if>
                                     <c:if test="${empty current_user}">
-                                        <div class="hexagon-image-30-32" data-src="${pageContext.request.contextPath}/resources/img/avatar/default_avatar.jpg"></div>
+                                        <div class="hexagon-image-30-32"
+                                             data-src="${pageContext.request.contextPath}/resources/img/avatar/default_avatar.jpg"></div>
                                     </c:if>
                                     <!-- /HEXAGON -->
                                 </div>
@@ -630,7 +353,8 @@
 
                         <!-- USER STATUS TEXT -->
                         <c:if test="${not empty current_user}">
-                            <p class="user-status-text small"><a href="profile-timeline.html">@${current_user.login}</a></p>
+                            <p class="user-status-text small"><a href="profile-timeline.html">@${current_user.login}</a>
+                            </p>
                         </c:if>
                         <!-- /USER STATUS TEXT -->
                     </div>
@@ -647,15 +371,11 @@
                 <!-- /DROPDOWN NAVIGATION LINK -->
 
                 <!-- DROPDOWN NAVIGATION LINK -->
-                <a class="dropdown-navigation-link" href="hub-profile-notifications.html">Notifications</a>
+                <a class="dropdown-navigation-link" href="notifications">Notifications</a>
                 <!-- /DROPDOWN NAVIGATION LINK -->
 
                 <!-- DROPDOWN NAVIGATION LINK -->
-                <a class="dropdown-navigation-link" href="hub-profile-messages.html">Messages</a>
-                <!-- /DROPDOWN NAVIGATION LINK -->
-
-                <!-- DROPDOWN NAVIGATION LINK -->
-                <a class="dropdown-navigation-link" href="hub-profile-requests.html">Friend Requests</a>
+                <a class="dropdown-navigation-link" href="friends">Friends</a>
                 <!-- /DROPDOWN NAVIGATION LINK -->
 
                 <!-- DROPDOWN NAVIGATION CATEGORY -->

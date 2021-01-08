@@ -118,7 +118,7 @@
           <!-- VIEW ACTIONS -->
           <div class="view-actions">
             <!-- VIEW ACTION -->
-            <a class="view-action text-tooltip-tft-medium active" href="events.html" data-title="Monthly">
+            <a class="view-action text-tooltip-tft-medium active" data-title="Activites">
               <!-- VIEW ACTION ICON -->
               <svg class="view-action-icon icon-events-monthly">
                 <use xlink:href="#svg-events-monthly"></use>
@@ -140,7 +140,7 @@
         <!-- /CALENDAR EVENTS PREVIEW TITLE -->
     
         <!-- CALENDAR EVENT PREVIEW LIST -->
-        <c:forEach items="${requestScope.events}" var="event">
+        <c:forEach items="${requestScope.userEvents}" var="event">
 
           <div class="calendar-event-preview-list">
             <!-- CALENDAR EVENT PREVIEW -->
@@ -156,11 +156,11 @@
               <!-- CALENDAR EVENT PREVIEW INFO -->
               <div class="calendar-event-preview-info">
                 <!-- CALENDAR EVENT PREVIEW TITLE -->
-                <p class="calendar-event-preview-title popup-event-information-trigger">${event.lieu} ---- ${event.date}</p>
+                <p class="calendar-event-preview-title popup-event-information-trigger"> ${event.description} - ${event.date}</p>
                 <!-- /CALENDAR EVENT PREVIEW TITLE -->
 
                 <!-- CALENDAR EVENT PREVIEW TEXT -->
-                <p class="calendar-event-preview-text">${event.description}</p>
+                <p class="calendar-event-preview-text">${event.lieu.nom} - ${event.lieu.adresse}</p>
                 <!-- /CALENDAR EVENT PREVIEW TEXT -->
 
                 <!-- CALENDAR EVENT PREVIEW TITLE -->

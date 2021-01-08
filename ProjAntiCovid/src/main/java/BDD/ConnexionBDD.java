@@ -3,6 +3,7 @@ package BDD;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import Beans.Event;
@@ -134,6 +135,39 @@ public class ConnexionBDD {
         return user;
     }
 
+    public Location getLocation(int id) throws SQLException {
+
+        Location lieu = null;
+
+        String rqString = "Select * from Location where id=?";
+        PreparedStatement preparedStatement = this.connect().prepareStatement(rqString);
+        preparedStatement.setInt(1, id);
+        ResultSet res = preparedStatement.executeQuery();
+        int i = 0;
+        try {
+            while(res.next()) {
+                if(i==0) {
+                    lieu = new Location();
+                    lieu.setId(res.getInt("id"));
+                    lieu.setNom(res.getString("nom"));
+                    lieu.setAdresse(res.getString("adresse"));
+                    lieu.setLatitude(res.getFloat("latitude"));
+                    lieu.setLongitude(res.getFloat("longitude"));
+                }
+                else {
+                    i++;
+                    arret("Plus d'un lieu avec le même id ??");
+                }
+
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return lieu;
+    }
+
     public ArrayList<Notif> getUserNotifications(int id) throws SQLException {
 
         ArrayList<Notif> userNotifs = new ArrayList<>();
@@ -148,8 +182,8 @@ public class ConnexionBDD {
                 if(i==0) {
                     Notif n = new Notif();
                     n.setId(res.getInt("id"));
-                    n.setReceiver_id(res.getInt("receiver_id"));
-                    n.setSender_id(res.getInt("sender_id"));
+                    n.setReceiver(getUser(res.getInt("receiver_id")));
+                    n.setSender(getUser(res.getInt("sender_id")));
                     n.setNotif_type(res.getString("notif_type"));
                     n.setTime_sent(res.getTime("time_sent"));
                     n.setIs_read(res.getBoolean("is_read"));
@@ -184,8 +218,8 @@ public class ConnexionBDD {
                 if(i==0) {
                     Notif n = new Notif();
                     n.setId(res.getInt("id"));
-                    n.setReceiver_id(res.getInt("receiver_id"));
-                    n.setSender_id(res.getInt("sender_id"));
+                    n.setReceiver(getUser(res.getInt("receiver_id")));
+                    n.setSender(getUser(res.getInt("sender_id")));
                     n.setNotif_type(res.getString("notif_type"));
                     n.setTime_sent(res.getTime("time_sent"));
                     n.setIs_read(res.getBoolean("is_read"));
@@ -248,13 +282,13 @@ public class ConnexionBDD {
                 e.setDate(res.getDate("date"));
                 e.setStart_hour(res.getDate("start_hour"));
                 e.setEnd_hour(res.getDate("end_hour"));
-                e.setLieu(res.getString("lieu"));
+                e.setLieu(getLocation(res.getInt("lieu")));
                 e.setDescription(res.getString("description"));
+                e.setUser(getUser(res.getInt("user_id")));
                 events.add(e);
             }
         }
         catch (SQLException | ParseException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -274,14 +308,13 @@ public class ConnexionBDD {
                 e.setDate(res.getDate("date"));
                 e.setStart_hour(res.getDate("start_hour"));
                 e.setEnd_hour(res.getDate("end_hour"));
-                e.setLieu(res.getString("lieu"));
+                e.setLieu(getLocation(res.getInt("lieu")));
                 e.setDescription(res.getString("description"));
-                e.setUser_id(res.getInt("user_id"));
+                e.setUser(getUser(res.getInt("user_id")));
                 events.add(e);
             }
         }
         catch (SQLException | ParseException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -306,7 +339,6 @@ public class ConnexionBDD {
             }
         }
         catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -462,6 +494,56 @@ public class ConnexionBDD {
         }
 
         return false;
+    }
+
+    public ArrayList<Integer> notifContacts(int id) {
+
+        LocalDate date = LocalDate.now().minusDays(10);
+        ArrayList<Integer> users = new ArrayList<>();
+        ArrayList<Integer> lieux = new ArrayList<>();
+        ArrayList<String> start_hours = new ArrayList<String>();
+        ArrayList<String> end_hours = new ArrayList<>();
+        Date tendays = Date.valueOf(date);
+
+
+        String sql_lieu = "SELECT lieu, start_hour, end_hour FROM Event WHERE user_id=" + id +" AND date>="+tendays;
+        ResultSet res = doRequest(sql_lieu);
+        try {
+            int lieu;
+            String start_hour = "";
+            String end_hour = "";
+            while (res.next()) {
+                lieu = res.getInt("event.lieu");
+                start_hour = res.getString("event.start_hour");
+                end_hour = res.getString("event.end_hour");
+                lieux.add(lieu);
+                start_hours.add(start_hour);
+                end_hours.add(end_hour);
+                System.out.println("lieu = "+lieu);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        if(!lieux.isEmpty() && !start_hours.isEmpty() && !end_hours.isEmpty()){
+            for(int i = 0; i<lieux.size(); i++){
+                String sql_user = "SELECT user_id FROM Event WHERE user_id !="+ id +" AND lieu="+ lieux.get(i) +" AND date>="+tendays+
+                        " AND (( start_hour<= TIME '"+ start_hours.get(i) +"' AND end_hour>= TIME '"+start_hours.get(i)+"') " +
+                        "OR ( start_hour<= TIME '"+ end_hours.get(i) +"' AND end_hour>= TIME '"+ end_hours.get(i) +"'))";
+                System.out.println(sql_user);
+                res = doRequest(sql_user);
+                try {
+                    while (res.next()) {
+                        users.add(res.getInt("event.user_id"));;
+                    }
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            }
+        }
+
+
+        return users;
     }
 
     public ResultSet doRequest(String sql_string) {

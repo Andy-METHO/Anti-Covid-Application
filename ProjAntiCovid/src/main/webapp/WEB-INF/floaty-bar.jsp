@@ -43,23 +43,26 @@
             <!-- /ACTION LIST ITEM -->
 
             <!-- ACTION LIST ITEM -->
-            <a class="action-list-item" href="hub-profile-messages.html">
-                <!-- ACTION LIST ITEM ICON -->
-                <svg class="action-list-item-icon icon-messages">
-                    <use xlink:href="#svg-messages"></use>
-                </svg>
-                <!-- /ACTION LIST ITEM ICON -->
-            </a>
-            <!-- /ACTION LIST ITEM -->
-
-            <!-- ACTION LIST ITEM -->
-            <a class="action-list-item unread" href="hub-profile-notifications.html">
+            <c:choose>
+                <c:when test="${not empty unread && unread.size() !=0}">
+                    <a class="action-list-item unread" href="notifications">
                 <!-- ACTION LIST ITEM ICON -->
                 <svg class="action-list-item-icon icon-notification">
                     <use xlink:href="#svg-notification"></use>
                 </svg>
                 <!-- /ACTION LIST ITEM ICON -->
             </a>
+                </c:when>
+                <c:otherwise>
+                    <a class="action-list-item" href="notifications">
+                    <!-- ACTION LIST ITEM ICON -->
+                    <svg class="action-list-item-icon icon-notification">
+                    <use xlink:href="#svg-notification"></use>
+                    </svg>
+                    <!-- /ACTION LIST ITEM ICON -->
+                    </a>
+                </c:otherwise>
+            </c:choose>
             <!-- /ACTION LIST ITEM -->
         </div>
         <!-- /ACTION LIST -->

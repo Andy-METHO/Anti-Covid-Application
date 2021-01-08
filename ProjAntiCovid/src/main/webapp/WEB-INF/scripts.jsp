@@ -38,3 +38,20 @@
 <script src="${pageContext.request.contextPath}/resources/js/global/global.maps.js"></script>
 <!-- google maps api -->
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function notifRefresh(){
+        $.ajax({
+            type: "GET",                    //Sending mode
+            url: "notifications",                //Request address
+            data: "",                           //Data is empty.
+            timeout: 5000,
+            success: function (data) {             //Callback function after success
+                $("#refresh").html(data);            //Page display content
+                console.log("REFRESH");
+            }
+        });
+    });
+</script> -->

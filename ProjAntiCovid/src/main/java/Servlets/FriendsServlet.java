@@ -72,7 +72,7 @@ public class FriendsServlet extends HttpServlet {
 	    		String sql_string_deletefriend =  "DELETE FROM `covid`.`ami` WHERE  ((`user1`="+current_user.getId()+" AND `user2`="+userdeletefriend.getId()+") OR (`user1`="+userdeletefriend.getId()+" AND `user2`="+current_user.getId()+")) AND `valide`=b'1' LIMIT 1;";
 	    		sc.doUpdate(sql_string_deletefriend);
 	    		friendslist.removeFriends(userdeletefriend);
-	    		sc.createNotif(userdeletefriend.getId(), current_user.getId(), "Quelqu'un vous a retiré de sa liste d'amis");
+	    		sc.createNotif(userdeletefriend.getId(), current_user.getId(), "vous a retiré de sa liste d'amis");
 	    	}
 	    	
 	    	String deleteRequest_received =  request.getParameter("deleteRequest_received");

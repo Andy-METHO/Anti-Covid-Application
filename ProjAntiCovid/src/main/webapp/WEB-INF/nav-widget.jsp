@@ -9,7 +9,7 @@
 <!-- NAVIGATION WIDGET -->
 <nav id="navigation-widget-small" class="navigation-widget navigation-widget-desktop closed sidebar left delayed">
     <!-- USER AVATAR -->
-    <a class="user-avatar small no-outline online" href="profile-timeline.html">
+    <a class="user-avatar small no-outline online">
         <!-- USER AVATAR CONTENT -->
         <div class="user-avatar-content">
             <!-- HEXAGON -->
@@ -27,20 +27,6 @@
 
     <!-- MENU -->
     <ul class="menu small">
-        <!-- MENU ITEM -->
-        <li class="menu-item">
-            <!-- MENU ITEM LINK -->
-            <a class="menu-item-link text-tooltip-tfr" href="overview.html" data-title="Overview">
-                <!-- MENU ITEM LINK ICON -->
-                <svg class="menu-item-link-icon icon-overview">
-                    <use xlink:href="#svg-overview"></use>
-                </svg>
-                <!-- /MENU ITEM LINK ICON -->
-            </a>
-            <!-- /MENU ITEM LINK -->
-        </li>
-        <!-- /MENU ITEM -->
-
         <!-- MENU ITEM -->
         <li class="menu-item">
             <!-- MENU ITEM LINK -->
@@ -125,28 +111,13 @@
         <!-- MENU ITEM -->
         <li class="menu-item">
             <!-- MENU ITEM LINK -->
-            <a class="menu-item-link" href="overview.html">
-                <!-- MENU ITEM LINK ICON -->
-                <svg class="menu-item-link-icon icon-overview">
-                    <use xlink:href="#svg-overview"></use>
-                </svg>
-                <!-- /MENU ITEM LINK ICON -->
-                Overview
-            </a>
-            <!-- /MENU ITEM LINK -->
-        </li>
-        <!-- /MENU ITEM -->
-
-        <!-- MENU ITEM -->
-        <li class="menu-item">
-            <!-- MENU ITEM LINK -->
             <a class="menu-item-link" href="friends">
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-members">
                     <use xlink:href="#svg-members"></use>
                 </svg>
                 <!-- /MENU ITEM LINK ICON -->
-                Members
+                Friends
             </a>
             <!-- /MENU ITEM LINK -->
         </li>
@@ -188,7 +159,7 @@
         <!-- NAVIGATION WIDGET INFO -->
         <div class="navigation-widget-info">
             <!-- USER AVATAR -->
-            <a class="user-avatar small no-outline" href="profile-timeline.html">
+            <a class="user-avatar small no-outline">
                 <!-- USER AVATAR CONTENT -->
                 <div class="user-avatar-content">
                     <!-- HEXAGON -->
@@ -218,30 +189,6 @@
                     <!-- /HEXAGON -->
                 </div>
                 <!-- /USER AVATAR PROGRESS BORDER -->
-
-                <!-- USER AVATAR BADGE -->
-                <div class="user-avatar-badge">
-                    <!-- USER AVATAR BADGE BORDER -->
-                    <div class="user-avatar-badge-border">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-22-24"></div>
-                        <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR BADGE BORDER -->
-
-                    <!-- USER AVATAR BADGE CONTENT -->
-                    <div class="user-avatar-badge-content">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-dark-16-18"></div>
-                        <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR BADGE CONTENT -->
-
-                    <!-- USER AVATAR BADGE TEXT -->
-                    <p class="user-avatar-badge-text">24</p>
-                    <!-- /USER AVATAR BADGE TEXT -->
-                </div>
-                <!-- /USER AVATAR BADGE -->
             </a>
             <!-- /USER AVATAR -->
 
@@ -275,28 +222,13 @@
         <!-- MENU ITEM -->
         <li class="menu-item">
             <!-- MENU ITEM LINK -->
-            <a class="menu-item-link" href="overview.html">
-                <!-- MENU ITEM LINK ICON -->
-                <svg class="menu-item-link-icon icon-overview">
-                    <use xlink:href="#svg-overview"></use>
-                </svg>
-                <!-- /MENU ITEM LINK ICON -->
-                Overview
-            </a>
-            <!-- /MENU ITEM LINK -->
-        </li>
-        <!-- /MENU ITEM -->
-
-        <!-- MENU ITEM -->
-        <li class="menu-item">
-            <!-- MENU ITEM LINK -->
             <a class="menu-item-link" href="friends">
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-members">
                     <use xlink:href="#svg-members"></use>
                 </svg>
                 <!-- /MENU ITEM LINK ICON -->
-                Members
+                Friends
             </a>
             <!-- /MENU ITEM LINK -->
         </li>
@@ -357,6 +289,12 @@
 
     <!-- NAVIGATION WIDGET SECTION LINK -->
     <a class="navigation-widget-section-link" href="accueil">Home</a>
+    <!-- /NAVIGATION WIDGET SECTION LINK -->
+
+    <!-- NAVIGATION WIDGET SECTION LINK -->
+    <c:if test="${current_user.role == 'ADMIN'}">
+        <a class="navigation-widget-section-link" href="admin">Admin</a>
+    </c:if>
     <!-- /NAVIGATION WIDGET SECTION LINK -->
 
 </nav>

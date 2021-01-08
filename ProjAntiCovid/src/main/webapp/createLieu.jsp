@@ -65,7 +65,7 @@
                         <th><p class="calendar-events-preview-title">Longitude</p></th>
                         <th><p class="calendar-events-preview-title">Latitude</p></th>
                     </tr>
-                    <c:forEach var="location" items="${requestScope.locations}">
+                    <c:forEach var="location" items="${requestScope.userLocations}">
                         <tr>
                             <td><p class="calendar-events-preview-title">${location.nom}</p></td>
                             <td><p class="calendar-events-preview-title">${location.adresse}</p>

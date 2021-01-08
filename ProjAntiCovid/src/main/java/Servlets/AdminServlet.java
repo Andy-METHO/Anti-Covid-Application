@@ -3,6 +3,7 @@ package Servlets;
 import BDD.ConnexionBDD;
 import Beans.Event;
 import Beans.Location;
+import Beans.Notif;
 import Beans.User;
 
 import javax.servlet.ServletException;
@@ -92,6 +93,15 @@ public class AdminServlet extends HttpServlet {
             System.out.println(users.size());
             ArrayList<Event> events = sc.getAllEvent();
             ArrayList<Location> locations = sc.getAllLocations();
+
+            try {
+                ArrayList<Notif> notifs = sc.getUserNotifications(current_user.getId());
+                session.setAttribute("notifs", notifs);
+                session.setAttribute("unread", "");
+                System.out.println("fait");
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
 
             request.setAttribute("locations", locations);
             request.setAttribute("events", events);

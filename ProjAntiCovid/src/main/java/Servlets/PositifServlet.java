@@ -36,12 +36,12 @@ public class PositifServlet extends HttpServlet {
 
 		ResultSet results;
 		String friends_sql = "SELECT id,pseudo FROM ami,User WHERE ( user1=" + current_user.getId() + " OR user2=" + current_user.getId() + " ) AND valide=1 AND ( user1=id OR user2=id );";
-		ArrayList<User> friends = new ArrayList<User>();
+		ArrayList<Integer> friends = new ArrayList<Integer>();
 		try {
 			results = sc.doRequest(friends_sql);
 			while (results.next()) {
 				if (!sc.getUser(results.getString(2)).getPseudo().equals(current_user.getPseudo())) {
-					friends.add(sc.getUser(results.getString(2)));
+					friends.add(results.getInt(1));
 				}
 			}
 		} catch (SQLException e) {
@@ -60,9 +60,15 @@ public class PositifServlet extends HttpServlet {
                     } catch (SQLException throwables) {
                         throwables.printStackTrace();
                     }
-					for ( User f : friends) {
-						sc.createNotif( f.getId(), current_user.getId(), "Est positif au corona virus");
+					for ( Integer f : friends) {
+						sc.createNotif( f, current_user.getId(), "est positif au coronavirus, faites vous tester");
 					}
+					for( Integer u : sc.notifContacts(current_user.getId())){
+					    if (!friends.contains(u)){
+                            sc.createNotif(u, current_user.getId(), "est positif au coronavirus, faites vous tester");
+                        }
+
+                    }
 				}
 			}
         }

@@ -144,6 +144,7 @@
                         <th><p class="calendar-events-preview-title">Heure fin</p></th>
                         <th><p class="calendar-events-preview-title">Lieu</p></th>
                         <th><p class="calendar-events-preview-title">Event</p></th>
+                        <th><p class="calendar-events-preview-title">User</p></th>
                         <th><p class="calendar-events-preview-title">Supprimer</p></th>
                     </tr>
                     <c:forEach var="event" items="${requestScope.events}">
@@ -153,9 +154,12 @@
                             </td>
                             <td><p class="calendar-events-preview-title">${event.end_hour}</p>
                             </td>
-                            <td><p class="calendar-events-preview-title">${event.lieu}</p></td>
+                            <td><p class="calendar-events-preview-title">${event.lieu.nom}</p></td>
                             <td>
                                 <p class="calendar-events-preview-title">${event.description}</p>
+                            </td>
+                            <td>
+                                <p class="calendar-events-preview-title">${event.user.pseudo}</p>
                             </td>
                             <td>
                                 <form action="admin" method="POST">

@@ -90,7 +90,7 @@
                                         <!-- USER AVATAR CONTENT -->
                                         <div class="user-avatar-content">
                                             <!-- HEXAGON -->
-                                            <div class="hexagon-image-30-32" data-src="${pageContext.request.contextPath}/resources/img/avatar/${notif.sender_id}.jpg"></div>
+                                            <div class="hexagon-image-30-32" data-src="${pageContext.request.contextPath}/resources/img/avatar/${notif.sender.image}"></div>
                                             <!-- /HEXAGON -->
                                         </div>
                                         <!-- /USER AVATAR CONTENT -->
@@ -116,7 +116,7 @@
                                 <!-- /USER STATUS AVATAR -->
 
                                 <!-- USER STATUS TITLE -->
-                                <p class="user-status-title">${notif.sender_id} ${notif.notif_type} </p>
+                                <p class="user-status-title">${notif.sender.pseudo} ${notif.notif_type} </p>
                                 <!-- /USER STATUS TITLE -->
 
                                 <!-- USER STATUS TIMESTAMP -->

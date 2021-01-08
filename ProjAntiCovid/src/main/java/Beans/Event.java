@@ -10,11 +10,11 @@ public class Event {
 	private Date date;
 	private Date start_hour;
 	private Date end_hour;
-	private String lieu;
+	private Location lieu;
     private String description;
-    private int user_id;
+    private User user;
 
-	public Event(int id, Date date, Date start_hour, Date end_hour, String lieu, String description, int user_id) {
+	public Event(int id, Date date, Date start_hour, Date end_hour, Location lieu, String description, User user) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -22,12 +22,11 @@ public class Event {
 		this.end_hour = end_hour;
 		this.lieu = lieu;
 		this.description = description;
-		this.user_id = user_id;
+		this.user = user;
 	}
     
 
     public Event() {
-		// TODO Auto-generated constructor stub
 	}
 
 
@@ -37,8 +36,8 @@ public class Event {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Date getDate() {
-		return date;
+	public String getDate() {
+		return new SimpleDateFormat("dd/MM/yyyy").format(date);
 	}
 	public void setDate(Date date) {
 		this.date = date;
@@ -55,10 +54,10 @@ public class Event {
 	public void setEnd_hour(Date end_hour) {
 		this.end_hour = end_hour;
 	}
-	public String getLieu() {
+	public Location getLieu() {
 		return lieu;
 	}
-	public void setLieu(String lieu) {
+	public void setLieu(Location lieu) {
 		this.lieu = lieu;
 	}
 	public String getDescription() {
@@ -67,11 +66,11 @@ public class Event {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public int getUser_id() {
-		return user_id;
+	public User getUser() {
+		return user;
 	}
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUser(User user) {
+		this.user = user;
 	}
     
     
