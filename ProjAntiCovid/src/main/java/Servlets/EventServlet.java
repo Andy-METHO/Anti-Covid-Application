@@ -58,6 +58,7 @@ public class EventServlet extends HttpServlet {
                     System.out.println("Création de l'event");
                     if(succes){
                         System.out.println("Création réussie");
+                        session.setAttribute("msg_err_event","");
                     }
                     else{
                         session.setAttribute("msg_err_event","Les données rentrées sont incorrectes !");

@@ -427,7 +427,15 @@
             <!-- /LOGO -->
 
             <!-- HEADER BRAND TEXT -->
-            <h1 class="header-brand-text"><a href="positif">Je suis positif !</a></h1>
+            <c:choose>
+                <c:when test="${current_user.statut == true}">
+                    <h1 class="header-brand-text"><a href="positif">Changer ma situation !</a></h1>
+                </c:when>
+                <c:otherwise>
+                    <h1 class="header-brand-text"><a href="positif">Je suis positif !</a></h1>
+                </c:otherwise>
+            </c:choose>
+
             <!-- /HEADER BRAND TEXT -->
         </div>
         <!-- /HEADER BRAND -->
@@ -470,12 +478,20 @@
                         <!-- DROPDOWN BOX HEADER TITLE -->
                         <p class="dropdown-box-header-title">Notifications</p>
                         <!-- /DROPDOWN BOX HEADER TITLE -->
+
+                        <!-- DROPDOWN BOX HEADER ACTION -->
+                        <div class="dropdown-box-header-actions">
+                            <form action="notifications" method="post">
+                                <button style="background-color: transparent"><p class="dropdown-box-header-action">Mark all as Read</p></button>
+                            </form>
+                        </div>
+                        <!-- DROPDOWN BOX HEADER ACTION -->
                     </div>
                     <!-- /DROPDOWN BOX HEADER -->
 
-                        <!-- DROPDOWN BOX LIST -->
-                    <c:forEach var="notif" items="${unread}">
-                        <div class="dropdown-box-list" data-simplebar>
+                    <!-- DROPDOWN BOX LIST -->
+                    <div class="dropdown-box-list" data-simplebar>
+                        <c:forEach var="notif" items="${unread}">
                             <!-- DROPDOWN BOX LIST ITEM -->
                             <div class="dropdown-box-list-item unread">
                                 <!-- USER STATUS -->
@@ -533,9 +549,9 @@
                                 <!-- /USER STATUS -->
                             </div>
                             <!-- /DROPDOWN BOX LIST ITEM -->
-                        </div>
-                    </c:forEach>
-                        <!-- /DROPDOWN BOX LIST -->
+                        </c:forEach>
+                    </div>
+                    <!-- /DROPDOWN BOX LIST -->
 
                     <!-- DROPDOWN BOX BUTTON -->
                     <a class="dropdown-box-button secondary" href="notifications">View all Notifications</a>

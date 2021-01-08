@@ -111,6 +111,7 @@ public class FriendsServlet extends HttpServlet {
 					friendslist.addRequest_send(addUser);
 	        		String sql_string =  "INSERT INTO `covid`.`ami` (`user1`, `user2`, `valide`) VALUES ('"+user_id+"', '"+addUser.getId()+"', b'0');";
 		            sc.doUpdate(sql_string);
+		            sc.createNotif(addUser.getId(), user_id, "vous a envoyé une demande d'ami");
 	        	}
 	        }
 

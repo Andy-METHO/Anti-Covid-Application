@@ -88,6 +88,15 @@
         <!-- /FORM -->
       </div>
       <!-- /SECTION FILTERS BAR ACTIONS -->
+
+      <!-- SECTION FILTERS BAR ACTIONS -->
+      <div class="section-filters-bar-actions">
+        <c:if test="${not empty msg_err_event}">
+          <p class="landing-info-text" style="color:darkred">${msg_err_event}</p>
+        </c:if>
+      </div>
+      <!-- /SECTION FILTERS BAR ACTIONS -->
+    <!-- /SECTION FILTERS BAR -->
   
       <!-- SECTION FILTERS BAR ACTIONS -->
       <div class="section-filters-bar-actions">

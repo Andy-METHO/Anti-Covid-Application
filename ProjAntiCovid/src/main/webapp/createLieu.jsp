@@ -38,7 +38,11 @@
     </div>
     <div class="section-filters-bar v6">
         <!-- SECTION FILTERS BAR ACTIONS -->
-        <div class="section-filters-bar-actions"></div>
+        <div class="section-filters-bar-actions">
+            <c:if test="${not empty msg_err_location}">
+                <p class="landing-info-text" style="color:darkred">${msg_err_location}</p>
+            </c:if>
+        </div>
         <!-- /SECTION FILTERS BAR ACTIONS -->
 
         <!-- SECTION FILTERS BAR ACTIONS -->

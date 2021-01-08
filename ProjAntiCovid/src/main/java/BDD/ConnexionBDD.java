@@ -239,7 +239,7 @@ public class ConnexionBDD {
 
         ArrayList<Event> events = new ArrayList<Event>();
 
-        String rqString = "Select * from Event ;";
+        String rqString = "Select * from Event";
         ResultSet res = doRequest(rqString);
         try {
             while(res.next()) {
@@ -250,6 +250,33 @@ public class ConnexionBDD {
                 e.setEnd_hour(res.getDate("end_hour"));
                 e.setLieu(res.getString("lieu"));
                 e.setDescription(res.getString("description"));
+                events.add(e);
+            }
+        }
+        catch (SQLException | ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return events;
+    }
+
+    public ArrayList<Event> getUserEvents(int id) {
+
+        ArrayList<Event> events = new ArrayList<Event>();
+
+        String rqString = "Select * from Event WHERE user_id="+id;
+        ResultSet res = doRequest(rqString);
+        try {
+            while(res.next()) {
+                Event e = new Event();
+                e.setId(res.getInt("id"));
+                e.setDate(res.getDate("date"));
+                e.setStart_hour(res.getDate("start_hour"));
+                e.setEnd_hour(res.getDate("end_hour"));
+                e.setLieu(res.getString("lieu"));
+                e.setDescription(res.getString("description"));
+                e.setUser_id(res.getInt("user_id"));
                 events.add(e);
             }
         }

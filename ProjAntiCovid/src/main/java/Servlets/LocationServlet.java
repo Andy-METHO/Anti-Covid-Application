@@ -48,6 +48,7 @@ public class LocationServlet extends HttpServlet {
                     System.out.println("Création du lieu");
                     if (succes) {
                         System.out.println("Création réussie");
+                        session.setAttribute("msg_err_location", "");
                     } else {
                         session.setAttribute("msg_err_location", "Les données rentrées sont incorrectes !");
                         System.out.println("Création échouée");

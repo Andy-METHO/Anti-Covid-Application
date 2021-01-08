@@ -1,5 +1,3 @@
-<%@ page import="Beans.*" %>
-<%@ page import="Servlets.FriendsServlet" %>
 <jsp:useBean id="friendslist" class="Beans.Friends" scope="session" />
 <!DOCTYPE html>
 <html lang="en">
@@ -47,11 +45,11 @@
       <div class="calendar-events-preview-title">
         <div class="calendar-events-preview">
           <p class="calendar-events-preview-title">Etes vous sur d'etre infecte par le covid-19 ?</p>
-          <form action="accueil" method="POST">
+          <form action="positif" method="POST">
               <table>
                   <tr>
-                      <td><div class="menu-item-link text-tooltip-tfr"><button name="positivite" value="positif">OUI</button></div></td>
-                      <td><div class="menu-item-link text-tooltip-tfr"><button name="positivite" value="annuler">NON</button></div></td>
+                      <td><div class="menu-item-link text-tooltip-tfr"><button type="submit" name="positivite" value="1">OUI</button></div></td>
+                      <td><div class="menu-item-link text-tooltip-tfr"><button type="submit" name="positivite" value="0">NON</button></div></td>
                   </tr>
               </table>
           </form>

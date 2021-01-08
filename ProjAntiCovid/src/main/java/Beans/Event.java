@@ -12,8 +12,9 @@ public class Event {
 	private Date end_hour;
 	private String lieu;
     private String description;
-    
-	public Event(int id, Date date, Date start_hour, Date end_hour, String lieu, String description) {
+    private int user_id;
+
+	public Event(int id, Date date, Date start_hour, Date end_hour, String lieu, String description, int user_id) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -21,6 +22,7 @@ public class Event {
 		this.end_hour = end_hour;
 		this.lieu = lieu;
 		this.description = description;
+		this.user_id = user_id;
 	}
     
 
@@ -64,6 +66,12 @@ public class Event {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public int getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
     
     

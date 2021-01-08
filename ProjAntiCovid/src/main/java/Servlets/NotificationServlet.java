@@ -17,7 +17,16 @@ import java.util.ArrayList;
 
 public class NotificationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        User current_user = (User) session.getAttribute("current_user");
 
+        ConnexionBDD sc = new ConnexionBDD();
+
+        String sql_readall = "UPDATE `Notifs` SET `is_read` = '1' WHERE `Notifs`.`receiver_id` ="+current_user.getId()+";";
+        int read = sc.doUpdate(sql_readall);
+        System.out.println(read);
+
+        response.sendRedirect(request.getHeader("referer"));
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

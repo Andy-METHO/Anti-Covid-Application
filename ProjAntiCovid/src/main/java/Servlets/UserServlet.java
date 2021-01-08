@@ -48,7 +48,7 @@ public class UserServlet extends HttpServlet {
                 }
 
                 ArrayList<Location> locations = sc.getAllLocations();
-                ArrayList<Event> events = sc.getAllEvent();
+                ArrayList<Event> events = sc.getUserEvents(current_user.getId());
 
                 request.setAttribute("locations", locations);
                 request.setAttribute("events", events);

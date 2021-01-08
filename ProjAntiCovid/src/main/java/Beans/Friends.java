@@ -38,7 +38,6 @@ public class Friends {
         return friends.size();
     }
 
-
     public User getRequest_received(int i) {
         return request_received.get(i);
     }
