@@ -51,7 +51,7 @@ public class NotificationServlet extends HttpServlet {
                 try {
                     ArrayList<Notif> notifs = sc.getUserNotifications(current_user.getId());
                     session.setAttribute("notifs", notifs);
-                    //session.setAttribute("unread", "");
+                    session.setAttribute("unread", "");
                     System.out.println("fait");
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();

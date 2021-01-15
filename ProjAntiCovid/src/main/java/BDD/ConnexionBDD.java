@@ -382,17 +382,18 @@ public class ConnexionBDD {
         return false;
     }
 
-    public boolean createEvent(int lieu, String date, String start, String end, String description) {
+    public boolean createEvent(int lieu, String date, String start, String end, String description, int user_id) {
         Connection con = connect();
 
         try {
-            String rqString = "INSERT INTO Event (lieu, date, start_hour, end_hour, description) VALUES (?, ?, ?, ?, ?)";
+            String rqString = "INSERT INTO Event (lieu, date, start_hour, end_hour, description, user_id) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = con.prepareStatement(rqString);
             preparedStatement.setInt(1, lieu);
             preparedStatement.setString(2, date);
             preparedStatement.setString(3, start);
             preparedStatement.setString(4, end);
             preparedStatement.setString(5, description);
+            preparedStatement.setInt(6, user_id);
 
             if(preparedStatement.executeUpdate()>0){
                 return true;

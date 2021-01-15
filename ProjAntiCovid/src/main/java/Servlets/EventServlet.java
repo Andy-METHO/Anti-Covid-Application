@@ -48,13 +48,14 @@ public class EventServlet extends HttpServlet {
         System.out.println(event_date+" "+event_start+" "+ event_description);
 
         HttpSession session = request.getSession();
+        User current_user = (User) session.getAttribute("current_user");
         ConnexionBDD sc = new ConnexionBDD();
 
         if(!event_date.equals("") && !event_start.equals("") && !event_end.equals("") && !event_description.equals("")) {
 
             try {
                 if(!sc.eventExists(event_description, event_location)){
-                    boolean succes = sc.createEvent(event_location, event_date, event_start, event_end, event_description);
+                    boolean succes = sc.createEvent(event_location, event_date, event_start, event_end, event_description, current_user.getId());
                     System.out.println("Création de l'event");
                     if(succes){
                         System.out.println("Création réussie");

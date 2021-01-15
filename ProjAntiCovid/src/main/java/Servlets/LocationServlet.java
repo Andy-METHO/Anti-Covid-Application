@@ -67,6 +67,8 @@ public class LocationServlet extends HttpServlet {
             session.setAttribute("msg_err_location", "Les données rentrées sont incorrectes !");
         }
 
+        ArrayList<Location> locations = sc.getAllLocations();
+        request.setAttribute("locations", locations);
         response.sendRedirect(request.getHeader("referer"));
     }
 
