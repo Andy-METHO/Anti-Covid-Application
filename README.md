@@ -1,5 +1,4 @@
-# Projet-Design-Pattern-2020
-Anti-Covid Application 
+# Anti-Covid Application 
 
 This application is a website working like a social network working against covid.
 
